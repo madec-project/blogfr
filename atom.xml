@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title><![CDATA[MADEC]]></title>
   <subtitle><![CDATA[Visualisation d'information structurée en rapport]]></subtitle>
-  <link href="/blog/atom.xml" rel="self"/>
-  <link href="http://madec-project.github.io/blog/"/>
-  <updated>2015-04-15T13:42:32.000Z</updated>
-  <id>http://madec-project.github.io/blog/</id>
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://madec-project.github.io/"/>
+  <updated>2015-04-15T15:07:37.000Z</updated>
+  <id>http://madec-project.github.io/</id>
   
   <author>
     <name><![CDATA[MADEC]]></name>
@@ -16,10 +16,10 @@
   
   <entry>
     <title><![CDATA[Sprint Review #15W09: stabilisation]]></title>
-    <link href="http://madec-project.github.io/blog/2015/03/30/Sprint-Review-15W09-stabilisation/"/>
-    <id>http://madec-project.github.io/blog/2015/03/30/Sprint-Review-15W09-stabilisation/</id>
+    <link href="http://madec-project.github.io/2015/03/30/Sprint-Review-15W09-stabilisation/"/>
+    <id>http://madec-project.github.io/2015/03/30/Sprint-Review-15W09-stabilisation/</id>
     <published>2015-03-30T14:00:00.000Z</published>
-    <updated>2015-04-15T13:42:32.000Z</updated>
+    <updated>2015-04-15T15:07:37.000Z</updated>
     <content type="html"><![CDATA[<h1 id="Blog">Blog</h1><p>Afin de ne pas perdre des articles sur MADEC en général, et de pouvoir les stocker quelque part, ils sont écrits en français et en <a href="http://daringfireball.net/projects/markdown/syntax" target="_blank" rel="external">Markdown</a>, sauvegardés sur <a href="https://github.com/madec-project/blogfr" target="_blank" rel="external">GitHub</a>.</p>
 <p>Nous avons choisi un générateur de site statique nommé <a href="http://hexo.io" target="_blank" rel="external">Hexo</a>.</p>
 <p>J’ai <a href="2015/03/13/Presentation/">transcrit le poster</a> soumis (et accepté?) à <a href="http://atlas.irit.fr/" target="_blank" rel="external">VSST</a>.</p>
@@ -68,24 +68,24 @@
     <![CDATA[<h1 id="Blog">Blog</h1><p>Afin de ne pas perdre des articles sur MADEC en général, et de pouvoir les stocker quelque part, ils sont écrits e]]>
     </summary>
     
-      <category term="dalekjs" scheme="http://madec-project.github.io/blog/tags/dalekjs/"/>
+      <category term="dalekjs" scheme="http://madec-project.github.io/tags/dalekjs/"/>
     
-      <category term="ezmaster" scheme="http://madec-project.github.io/blog/tags/ezmaster/"/>
+      <category term="ezmaster" scheme="http://madec-project.github.io/tags/ezmaster/"/>
     
-      <category term="ezvis" scheme="http://madec-project.github.io/blog/tags/ezvis/"/>
+      <category term="ezvis" scheme="http://madec-project.github.io/tags/ezvis/"/>
     
-      <category term="jbj" scheme="http://madec-project.github.io/blog/tags/jbj/"/>
+      <category term="jbj" scheme="http://madec-project.github.io/tags/jbj/"/>
     
-      <category term="proxy" scheme="http://madec-project.github.io/blog/tags/proxy/"/>
+      <category term="proxy" scheme="http://madec-project.github.io/tags/proxy/"/>
     
-      <category term="showcase" scheme="http://madec-project.github.io/blog/tags/showcase/"/>
+      <category term="showcase" scheme="http://madec-project.github.io/tags/showcase/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Configuration d'ezVIS / minimum]]></title>
-    <link href="http://madec-project.github.io/blog/2015/03/19/Configuration/"/>
-    <id>http://madec-project.github.io/blog/2015/03/19/Configuration/</id>
+    <link href="http://madec-project.github.io/2015/03/19/Configuration/"/>
+    <id>http://madec-project.github.io/2015/03/19/Configuration/</id>
     <published>2015-03-19T22:38:00.000Z</published>
     <updated>2015-04-15T13:35:57.000Z</updated>
     <content type="html"><![CDATA[<h1 id="Introduction">Introduction</h1><p>Pour créer un rapport web avec ezVIS, il faut configurer l’application. Il y a 3 volets:</p>
@@ -136,23 +136,23 @@
 ]]>
     </summary>
     
-      <category term="configuration" scheme="http://madec-project.github.io/blog/tags/configuration/"/>
+      <category term="configuration" scheme="http://madec-project.github.io/tags/configuration/"/>
     
-      <category term="ezvis" scheme="http://madec-project.github.io/blog/tags/ezvis/"/>
+      <category term="ezvis" scheme="http://madec-project.github.io/tags/ezvis/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Présentation d'ezVIS]]></title>
-    <link href="http://madec-project.github.io/blog/2015/03/13/Presentation/"/>
-    <id>http://madec-project.github.io/blog/2015/03/13/Presentation/</id>
+    <link href="http://madec-project.github.io/2015/03/13/Presentation/"/>
+    <id>http://madec-project.github.io/2015/03/13/Presentation/</id>
     <published>2015-03-13T17:02:00.000Z</published>
     <updated>2015-04-15T14:53:38.000Z</updated>
     <content type="html"><![CDATA[<h1 id="Introduction">Introduction</h1><p>ezVIS est le résultat d’une réflexion menée au sein de l’Inist-CNRS sur le besoin d’un outil de mise à disposition et d’exploration de corpus en remplacement d’outil développé précédemment comme SERVIST. Dans le cadre du projet MADEC, le choix a été fait d’aborder l’exploration d’un corpus par sa description à travers un tableau de bord.  Cela a conduit au développement d’un outil de réalisation de tableau de bord décrivant le corpus et y donnant accès.</p>
 <h1 id="ezVIS">ezVIS</h1><p>L’Inist-CNRS propose à travers son service <em>Appui au pilotage</em> des études bibliométriques réalisées à partir de données structurées fournies par les usagers ou issues de bases de données pour assurer le suivi de la production scientifique, mettre en évidence les collaborations, etc. Ces études livrées sous forme de rapport PDF ne répondent pas à toutes les attentes des usagers (réutilisation des graphiques, accès aux données, etc.). Un outil comme <a href="https://github.com/madec-project/ezvis" target="_blank" rel="external">ezVIS</a> est la solution retenue pour satisfaire les attentes d’interactivité et de dynamisme du résultat fourni à travers un tableau de bord convivial point d’entrée du rapport en ligne.</p>
 <h2 id="Configuration_des_rapports">Configuration des rapports</h2><p>Chaque rapport mis en ligne correspond à une instance configurée de façon relativement simple. Il est possible de créer autant d’instances que nécessaire en reproduisant la même configuration ou en la personnalisant. Cet aspect devrait permettre de multiplier le nombre de rapports en capitalisant et mutualisant les configurations. Ce gain de temps devrait permettre de pousser le travail de personnalisation.</p>
 <p>Par ailleurs, les instances peuvent être gérées grâce à une interface à la prise en main aisée.<br>La figure 1 présente <a href="https://github.com/madec-project/ezmaster" target="_blank" rel="external">l’interface d’administration</a> qui permet créer et gérer (modification, suppression) les instances et de les configurer.</p>
-<img src="/blog/2015/03/13/Presentation/ezmaster-edit-instance.png">
+<img src="/2015/03/13/Presentation/ezmaster-edit-instance.png">
 <p>Figure 1 : interface d’administration et outil de paramétrage d’un rapport</p>
 <p>À partir de données structurées en UTF8 et mises à disposition dans des fichiers de différents formats (csv, tsv ou XML) la configuration consiste à :</p>
 <ul>
@@ -163,38 +163,38 @@
 <li>déterminer l’affichage des notices.</li>
 </ul>
 <h2 id="Fonctionnalités_d’exploration">Fonctionnalités d’exploration</h2><p>À ce stade du développement, l’outil offre un rapport web constitué d’une page d’accueil présentant le tableau de bord et un index sous forme de menu à partir desquels il est possible de naviguer vers des informations plus détaillées et les notices correspondantes. Les facettes complètent les graphiques en  proposant  des filtres complémentaires  pour mettre en évidence d’autres résultats. La figure 2 présente un des graphiques du tableau de bord avec les facettes associées et le corpus sous forme de tableau.</p>
-<img src="/blog/2015/03/13/Presentation/ezvis-dashboard.png">
+<img src="/2015/03/13/Presentation/ezvis-dashboard.png">
 <p>Figure 2 : Détail du tableau de bord</p>
 <p>La suite du développement prévoit d’autres types de représentations comme des cartes, des réseaux ainsi que des fonctionnalités comme l’export ou la sécurisation de l’interface.</p>
 <h1 id="Exemples_d’usages">Exemples d’usages</h1><p>Le principal besoin auquel répond ezVIS est la création de tableaux de bord mettant en évidence des informations de type bibliométrique. La facilité de création et de configuration d’une instance est l’un des avantages évidents de cet outil qui autorise la multiplication des tableaux de bord.  Toujours dans le domaine des corpus de notices bibliographiques, un tel outil permet également de vérifier le contenu et la qualité des données.<br>Enfin, le fait qu’il s’agisse d’un logiciel libre autorise son appropriation au-delà de la production scientifique comme par exemple pour l’analyse de fichiers de « logs » dans le cadre du projet ezPAARSE3.</p>
 <h2 id="Connaissance_de_la_production_scientifique_liée_à_une_thématique">Connaissance de la production scientifique liée à une thématique</h2><p>À partir d’un corpus constitué thématiquement, il est possible de mettre en évidence des éléments concernant la production scientifique, son évolution ainsi que la répartition en sous-thématiques, par exemple. La figure 3 illustre l’utilisation d’un graphique de type camembert qui représente la répartition thématique du corpus. Il est possible en cliquant sur une partie du graphique d’avoir accès à la liste des résultats correspondants. Il est également possible d’utiliser les facettes pour mettre à jour le graphique de manière dynamique le graphique.</p>
-<img src="/blog/2015/03/13/Presentation/ezvis-facets.png">
+<img src="/2015/03/13/Presentation/ezvis-facets.png">
 <p>Figure 3 : Mise en évidence de l’utilisation des facettes pour filtrer les résultats</p>
 <h2 id="Exploration_du_contenu_d’un_corpus">Exploration du contenu d’un corpus</h2><p>Il peut être utile avant la mise en ligne de notices bibliographiques de vérifier la qualité des données ou leur homogénéité lorsque les origines et les formats sont différents. La figure 4 illustre l’exploration du corpus mis à disposition par un éditeur dans le cadre d’un projet.</p>
-<img src="/blog/2015/03/13/Presentation/ezvis-biblio-corpus.png">
+<img src="/2015/03/13/Presentation/ezvis-biblio-corpus.png">
 <p>Figure 4 : Exploration d’un corpus de notice bibliographique</p>
 <h2 id="Analyse_des_consultations_de_ressources_en_ligne">Analyse des consultations de ressources en ligne</h2><p>ezVIS peut être utilisé pour réaliser des comptages d’autres types d’informations structurées et le choix d’un logiciel libre favorise fortement l’élargissement de l’usage. La figure 5 illustre l’utilisation d’ezVIS pour la mise en évidence du détail des consultations.</p>
-<img src="/blog/2015/03/13/Presentation/ezvis-logs.png">
+<img src="/2015/03/13/Presentation/ezvis-logs.png">
 <p>Figure 5 : Détail  des consultations de ressources numériques</p>
 ]]></content>
     <summary type="html">
     <![CDATA[<h1 id="Introduction">Introduction</h1><p>ezVIS est le résultat d’une réflexion menée au sein de l’Inist-CNRS sur le besoin d’un outil de mi]]>
     </summary>
     
-      <category term="ezmaster" scheme="http://madec-project.github.io/blog/tags/ezmaster/"/>
+      <category term="ezmaster" scheme="http://madec-project.github.io/tags/ezmaster/"/>
     
-      <category term="ezvis" scheme="http://madec-project.github.io/blog/tags/ezvis/"/>
+      <category term="ezvis" scheme="http://madec-project.github.io/tags/ezvis/"/>
     
-      <category term="présentation" scheme="http://madec-project.github.io/blog/tags/presentation/"/>
+      <category term="présentation" scheme="http://madec-project.github.io/tags/presentation/"/>
     
-      <category term="vsst" scheme="http://madec-project.github.io/blog/tags/vsst/"/>
+      <category term="vsst" scheme="http://madec-project.github.io/tags/vsst/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Bienvenue]]></title>
-    <link href="http://madec-project.github.io/blog/2015/02/10/Bienvenue/"/>
-    <id>http://madec-project.github.io/blog/2015/02/10/Bienvenue/</id>
+    <link href="http://madec-project.github.io/2015/02/10/Bienvenue/"/>
+    <id>http://madec-project.github.io/2015/02/10/Bienvenue/</id>
     <published>2015-02-10T14:10:04.000Z</published>
     <updated>2015-02-10T14:13:28.000Z</updated>
     <content type="html"><![CDATA[<p>Ce blog en français a pour sujet le projet MADEC, et donc ses outils.</p>
@@ -207,7 +207,7 @@
 <p>Ils sont tous hébergés sur <a href="https://github.com/madec]]>
     </summary>
     
-      <category term="général" scheme="http://madec-project.github.io/blog/tags/general/"/>
+      <category term="général" scheme="http://madec-project.github.io/tags/general/"/>
     
   </entry>
   
