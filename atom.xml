@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Visualisation d'information structurée en rapport]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://madec-project.github.io/"/>
-  <updated>2015-04-15T15:07:37.000Z</updated>
+  <updated>2015-04-30T12:51:12.000Z</updated>
   <id>http://madec-project.github.io/</id>
   
   <author>
@@ -13,6 +13,78 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Sprint Review #15W14: ressources externes]]></title>
+    <link href="http://madec-project.github.io/2015/05/04/Sprint-Review-15W14-ressources-externes/"/>
+    <id>http://madec-project.github.io/2015/05/04/Sprint-Review-15W14-ressources-externes/</id>
+    <published>2015-05-04T12:00:00.000Z</published>
+    <updated>2015-04-30T12:51:12.000Z</updated>
+    <content type="html"><![CDATA[<p>Voici venue la revue de sprint numéro 10, qui a pour thème principal <em>les ressources externes</em>.</p>
+<h1 id="madec-project-github-io">madec-project.github.io</h1><p>J’ai créé un page pour l’organisation <code>madec-project</code> sur <a href="https://github.com" target="_blank" rel="external">GitHub</a>, celle qui contient tous les programmes liés au projet MADEC. GitHub offrant l’hébergement d’un site statique, nous avions déjà opté pour <a href="http://hexo.io" target="_blank" rel="external">Hexo</a> pour ce blog.</p>
+<p>Pour obtenir une URL relativement courte (en tout cas plus courte que <a href="http://madec-project.github.io/blogfr" target="_blank" rel="external">http://madec-project.github.io/blogfr</a>), il a fallu nommer le dépôt contenant ce site <code>madec-project.github.io</code>, ce qui nous autorise une URL sans le nom du dépôt: <a href="http://madec-project.github.io/" target="_blank" rel="external">http://madec-project.github.io/</a></p>
+<h1 id="Twitter">Twitter</h1><p>Un compte Twitter <a href="http://twitter.com/ezvis_project" target="_blank" rel="external">ezvis_project</a> a aussi été créé (en ces temps de communication autour d’ezVIS, ça peut servir).</p>
+<img src="/2015/05/04/Sprint-Review-15W14-ressources-externes/ezVisTwitter.png">
+<h1 id="vimadec_/_vpmadec_/_puppet">vimadec / vpmadec / puppet</h1><p>Le travail avec Patrice commence à porter ses fruits:</p>
+<ul>
+<li>ajout d’un script d’installation d’une app ezmaster à partir de l’URL de son <code>.tar.gz</code>,</li>
+<li>mise sous surveillance du processus <code>ezmaster</code> afin de le relancer automatiquement quand il s’arrête (via <a href="https://www.npmjs.com/package/forever" target="_blank" rel="external">forever</a>).</li>
+<li>demande de création d’une machine virtuelle de production <code>vpmadec</code>.</li>
+</ul>
+<h1 id="ezVIS">ezVIS</h1><h2 id="Test_sous_node_v0-12">Test sous node v0.12</h2><p>En utilisant <a href="https://github.com/creationix/nvm" target="_blank" rel="external">nvm</a>, nous avons lancé et testé à la main ezVIS, et tout a marché.</p>
+<p>Il a néanmoins fallu passer par un <code>npm rebuild</code> pour recompiler/récupérer les modules binaires correspondant à cette version (principalement <code>bson</code> et <code>kerberos</code>)</p>
+<h2 id="Affichage_de_la_version">Affichage de la version</h2><p>Pour faciliter les échanges avec les utilisateurs (il y en a eu avec une personne d’Orléans, par mél), on affiche la version d’ezVIS dans le navigateur:</p>
+<img src="/2015/05/04/Sprint-Review-15W14-ressources-externes/ezvis-version-browser.png">
+<p>mais aussi lors du lancement d’une instance ezVIS:</p>
+<img src="/2015/05/04/Sprint-Review-15W14-ressources-externes/ezvis-version-cli.png">
+<h2 id="login/password">login/password</h2><p>On peut maintenant limiter l’accès à un rapport ezVIS en utilisant la clé <code>access</code>, contenant un <code>login</code> et un mot de passe soit <code>plain</code>, soit <code>sha1</code>:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"access"</span>: &#123;</span><br><span class="line">  <span class="string">"login"</span>: <span class="string">"user"</span>,</span><br><span class="line">  <span class="string">"sha1"</span> : <span class="string">"37fa265330ad83eaa879efb1e2db6380896cf639"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Le mot de passe sous forme <code>plain</code> est simplement le mot de passe en clair.<br>Mais comme ce n’est pas une bonne pratique, on peut remplacer son usage par celui de <code>sha1</code> qui remplace un mot de passe par son <a href="http://fr.wikipedia.org/wiki/SHA-1" target="_blank" rel="external">empreinte SHA-1</a>.</p>
+<p>Ainsi, on connaît l’empreinte du mot de passe, mais pas le mot de passe lui-même.</p>
+<p>Pour obtenir l’empreinte SHA-1 d’un mot de passe, on peut utiliser des commandes comme <code>shasum</code> ou <code>sha1sum</code> (en n’incluant pas de passage à la ligne dans le mot de passe), ou bien des sites de génération comme <a href="http://www.sha1-online.com/" target="_blank" rel="external">SHA1 online</a>.</p>
+<h2 id="Accès_aux_ressources_externes">Accès aux ressources externes</h2><h3 id="ezref">ezref</h3><p>On peut avoir besoin de ressources externes à ezvis (parce que de simples fichiers), mais avec la possibilité de remplacer ces fichiers de référence (tables de correspondance, listes, …).</p>
+<p>Utiliser <code>ezref</code>, l’application pour ezMaster qui met à disposition via le protocole http des fichiers qu’ezMaster vous permet de déposer est la solution.</p>
+<p>Pour pouvoir stocker les ressources: ezref (serveur web statique).</p>
+<h3 id="flyingFields">flyingFields</h3><p>Les <code>flyingFields</code> sont les cousins des <code>documentFields</code> et des <code>corpusFields</code>. Ils sont un croisement, dans le sens où ils permettent l’interopérabilité des uns et des autres.</p>
+<h3 id="JBJ">JBJ</h3><p>Pour pouvoir appliquer une table de correspondance présente dans les <code>corpusFields</code>, on a ajouté une action <code>mappingVar</code> à JBJ, qui fonctionne comme <code>mapping</code>, mais dont les arguments sont différents.</p>
+<h3 id="Exemple:_externaliser_la_table_de_correspondance_d’une_carte_géographique">Exemple: externaliser la table de correspondance d’une carte géographique</h3><p>Pour projeter des données sur la carte du monde, jusqu’ici, on était obligé de traduire les noms des pays en codes ISO (c’est ainsi que sont identifiés les pays sur la carte):</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"$fields.country"</span> : &#123;</span><br><span class="line">  <span class="string">"label"</span>: <span class="string">"Pays d'affiliation"</span>,</span><br><span class="line">  <span class="string">"path"</span> : <span class="string">"content.json.Pays"</span>,</span><br><span class="line">  <span class="string">"parseCSV"</span>: <span class="string">";"</span>,</span><br><span class="line">  <span class="string">"foreach"</span>: &#123;</span><br><span class="line">    <span class="string">"mapping"</span>: &#123;</span><br><span class="line">      <span class="string">"Albania"</span> : <span class="string">"ALB"</span>,</span><br><span class="line">      <span class="string">"Algeria"</span> : <span class="string">"DZA"</span>,</span><br><span class="line"></span><br><span class="line">      <span class="string">"Zaire"</span> : <span class="string">"COD"</span>,</span><br><span class="line">      <span class="string">"Zambia"</span> : <span class="string">"ZMB"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Nous avons amélioré l’opérateur <code>mapping</code> de JBJ pour qu’il puisse traiter directement tout un tableau:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"$fields.country"</span> : &#123;</span><br><span class="line">  <span class="string">"label"</span>: <span class="string">"Pays d'affiliation"</span>,</span><br><span class="line">  <span class="string">"path"</span> : <span class="string">"content.json.Pays"</span>,</span><br><span class="line">  <span class="string">"parseCSV"</span>: <span class="string">";"</span>,</span><br><span class="line">  <span class="string">"mapping"</span>: &#123;</span><br><span class="line">    <span class="string">"Albania"</span> : <span class="string">"ALB"</span>,</span><br><span class="line">    <span class="string">"Algeria"</span> : <span class="string">"DZA"</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">"Zaire"</span> : <span class="string">"COD"</span>,</span><br><span class="line">    <span class="string">"Zambia"</span> : <span class="string">"ZMB"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Puis, nous avons créé un opérateur similaire à <code>mapping</code> qui, au lieu de prendre en entrée l’objet courant et en paramètre la table de correspondance, permet de mettre en paramètre deux noms de variable: l’entrée et la table.<br>Il s’appelle <code>mappingVar</code> (ou <code>combine</code>).</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  "<span class="attribute">set</span>": <span class="value">&#123;</span><br><span class="line">    "<span class="attribute">arg</span>": <span class="value">&#123;</span><br><span class="line">      "<span class="attribute">a</span>": <span class="value"><span class="string">"Aha!"</span></span>,</span><br><span class="line">      "<span class="attribute">b</span>": <span class="value"><span class="string">"Baby"</span></span><br><span class="line">    </span>&#125;</span>,</span><br><span class="line">    "<span class="attribute">input</span>": <span class="value"><span class="string">"a"</span></span><br><span class="line">  </span>&#125;</span>,</span><br><span class="line">  "<span class="attribute">mappingVar</span>": <span class="value">[</span><br><span class="line">    <span class="string">"input"</span>,</span><br><span class="line">    <span class="string">"arg"</span></span><br><span class="line">  ]</span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
+<p>Ceci renvoie <code>&quot;Aha!&quot;</code>.</p>
+<p>Donc, grâce à <code>ezref</code>, on peut mettre la table de correspondance sur un serveur externe, et le charger dans un <code>corpusFields</code>, accessible comme une variable dans les <code>flyingFields</code>:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"documentFields"</span>: &#123;</span><br><span class="line">  <span class="string">"$fields.country"</span> : &#123;</span><br><span class="line">    <span class="string">"label"</span>: <span class="string">"Pays d'affiliation"</span>,</span><br><span class="line">    <span class="string">"path"</span> : <span class="string">"content.json.Pays"</span>,</span><br><span class="line">    <span class="string">"parseCSV"</span>: <span class="string">";"</span>,</span><br><span class="line">    <span class="string">"foreach"</span>: &#123;</span><br><span class="line">      <span class="string">"trim"</span>: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line"><span class="string">"corpusFields"</span>: &#123;</span><br><span class="line">  <span class="string">"$country2iso"</span>: &#123;</span><br><span class="line">    <span class="string">"$?"</span> : <span class="string">"http://localhost:35000/country2iso3.json"</span>,</span><br><span class="line">    <span class="string">"parseJSON"</span>: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line"><span class="string">"flyingFields"</span>: &#123;</span><br><span class="line">  <span class="string">"$country2"</span>: &#123;</span><br><span class="line">    <span class="string">"$_id"</span>: &#123;</span><br><span class="line">      <span class="string">"combine"</span> : [<span class="string">"_id"</span>, <span class="string">"country2iso"</span>]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"mask"</span>: <span class="string">"_id,value"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Quand on veut avoir le nombre de valeurs distinctes de <code>fields.country</code>, on peut utiliser l’URL <a href="http://localhost:3000/compute.json?operator=distinct&amp;field=fields.country" target="_blank" rel="external">http://localhost:3000/compute.json?operator=distinct&amp;field=fields.country</a> :</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">  data: [</span><br><span class="line">    &#123;</span><br><span class="line">      _id: "Albania",</span><br><span class="line">      value: 2</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      _id: "Algeria",</span><br><span class="line">      value: 15</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Mais en utilisant <code>&amp;flying=country2</code> en plus, on applique le JBJ correspondant à ce champ:<br><a href="http://localhost:3000/compute.json?operator=distinct&amp;field=fields.country&amp;flying=country2" target="_blank" rel="external">http://localhost:3000/compute.json?operator=distinct&amp;field=fields.country&amp;flying=country2</a></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">  data: [</span><br><span class="line">    &#123;</span><br><span class="line">      _id: "ALB",</span><br><span class="line">      value: 2</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      _id: "DZA",</span><br><span class="line">      value: 15</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Voici venue la revue de sprint numéro 10, qui a pour thème principal <em>les ressources externes</em>.</p>
+<h1 id="madec-project-github-i]]>
+    </summary>
+    
+      <category term="blog" scheme="http://madec-project.github.io/tags/blog/"/>
+    
+      <category term="ezref" scheme="http://madec-project.github.io/tags/ezref/"/>
+    
+      <category term="ezvis" scheme="http://madec-project.github.io/tags/ezvis/"/>
+    
+      <category term="flyingFields" scheme="http://madec-project.github.io/tags/flyingFields/"/>
+    
+      <category term="forever" scheme="http://madec-project.github.io/tags/forever/"/>
+    
+      <category term="jbj" scheme="http://madec-project.github.io/tags/jbj/"/>
+    
+      <category term="login" scheme="http://madec-project.github.io/tags/login/"/>
+    
+      <category term="nodejs" scheme="http://madec-project.github.io/tags/nodejs/"/>
+    
+      <category term="twitter" scheme="http://madec-project.github.io/tags/twitter/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Sprint Review #15W09: stabilisation]]></title>
@@ -196,16 +268,18 @@
     <link href="http://madec-project.github.io/2015/02/10/Bienvenue/"/>
     <id>http://madec-project.github.io/2015/02/10/Bienvenue/</id>
     <published>2015-02-10T14:10:04.000Z</published>
-    <updated>2015-02-10T14:13:28.000Z</updated>
-    <content type="html"><![CDATA[<p>Ce blog en français a pour sujet le projet MADEC, et donc ses outils.</p>
+    <updated>2015-04-15T16:14:02.000Z</updated>
+    <content type="html"><![CDATA[<p>Ce blog a pour sujet le projet MADEC, et donc ses outils.</p>
 <p>Ils sont tous hébergés sur <a href="https://github.com/madec-project/" target="_blank" rel="external">Github</a>.</p>
 <p>Le rythme de publication n’est pas encore fixé.<br>Il dépendra surtout de nos disponibilités.</p>
 <p>À bientôt, donc.</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>Ce blog en français a pour sujet le projet MADEC, et donc ses outils.</p>
-<p>Ils sont tous hébergés sur <a href="https://github.com/madec]]>
+    <![CDATA[<p>Ce blog a pour sujet le projet MADEC, et donc ses outils.</p>
+<p>Ils sont tous hébergés sur <a href="https://github.com/madec-project/" t]]>
     </summary>
+    
+      <category term="blog" scheme="http://madec-project.github.io/tags/blog/"/>
     
       <category term="général" scheme="http://madec-project.github.io/tags/general/"/>
     
