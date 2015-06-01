@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: vsst | MADEC</title>
+  <title>Archives: 2015/6 | MADEC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="MADEC">
-<meta property="og:url" content="http://madec-project.github.io/tags/vsst/index.html">
+<meta property="og:url" content="http://madec-project.github.io/archives/2015/06/index.html">
 <meta property="og:site_name" content="MADEC">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -179,74 +179,6 @@
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/amcharts/">amcharts</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/csv/">csv</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cytoscape/">cytoscape</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/export/">export</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ezmaster/">ezmaster</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ezref/">ezref</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ezvis/">ezvis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flyingFields/">flyingFields</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/forever/">forever</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jbj/">jbj</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/json/">json</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pdf/">pdf</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/png/">png</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/svg/">svg</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tsv/">tsv</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vsst/">vsst</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/xlsx/">xlsx</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Presentation" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/03/13/Presentation/" class="article-date">
-  <time datetime="2015-03-13T17:02:00.000Z" itemprop="datePublished">13 3 2015</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/03/13/Presentation/">Présentation d&#39;ezVIS</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Introduction">Introduction</h1><p>ezVIS est le résultat d’une réflexion menée au sein de l’Inist-CNRS sur le besoin d’un outil de mise à disposition et d’exploration de corpus en remplacement d’outil développé précédemment comme SERVIST. Dans le cadre du projet MADEC, le choix a été fait d’aborder l’exploration d’un corpus par sa description à travers un tableau de bord.  Cela a conduit au développement d’un outil de réalisation de tableau de bord décrivant le corpus et y donnant accès.</p>
-<h1 id="ezVIS">ezVIS</h1><p>L’Inist-CNRS propose à travers son service <em>Appui au pilotage</em> des études bibliométriques réalisées à partir de données structurées fournies par les usagers ou issues de bases de données pour assurer le suivi de la production scientifique, mettre en évidence les collaborations, etc. Ces études livrées sous forme de rapport PDF ne répondent pas à toutes les attentes des usagers (réutilisation des graphiques, accès aux données, etc.). Un outil comme <a href="https://github.com/madec-project/ezvis" target="_blank" rel="external">ezVIS</a> est la solution retenue pour satisfaire les attentes d’interactivité et de dynamisme du résultat fourni à travers un tableau de bord convivial point d’entrée du rapport en ligne.</p>
-<h2 id="Configuration_des_rapports">Configuration des rapports</h2><p>Chaque rapport mis en ligne correspond à une instance configurée de façon relativement simple. Il est possible de créer autant d’instances que nécessaire en reproduisant la même configuration ou en la personnalisant. Cet aspect devrait permettre de multiplier le nombre de rapports en capitalisant et mutualisant les configurations. Ce gain de temps devrait permettre de pousser le travail de personnalisation.</p>
-<p>Par ailleurs, les instances peuvent être gérées grâce à une interface à la prise en main aisée.<br>La figure 1 présente <a href="https://github.com/madec-project/ezmaster" target="_blank" rel="external">l’interface d’administration</a> qui permet créer et gérer (modification, suppression) les instances et de les configurer.</p>
-<img src="/2015/03/13/Presentation/ezmaster-edit-instance.png">
-<p>Figure 1 : interface d’administration et outil de paramétrage d’un rapport</p>
-<p>À partir de données structurées en UTF8 et mises à disposition dans des fichiers de différents formats (csv, tsv ou XML) la configuration consiste à :</p>
-<ul>
-<li>sélectionner les champs à afficher ou à utiliser pour les calculs,</li>
-<li>réaliser les calculs (somme, pourcentage, etc.),</li>
-<li>choisir le type de graphique  (histogramme, camembert, barres horizontales) et les paramétrer (couleurs, seuil, légende).</li>
-<li>définir les facettes associées à chaque graphique.</li>
-<li>déterminer l’affichage des notices.</li>
-</ul>
-<h2 id="Fonctionnalités_d’exploration">Fonctionnalités d’exploration</h2><p>À ce stade du développement, l’outil offre un rapport web constitué d’une page d’accueil présentant le tableau de bord et un index sous forme de menu à partir desquels il est possible de naviguer vers des informations plus détaillées et les notices correspondantes. Les facettes complètent les graphiques en  proposant  des filtres complémentaires  pour mettre en évidence d’autres résultats. La figure 2 présente un des graphiques du tableau de bord avec les facettes associées et le corpus sous forme de tableau.</p>
-<img src="/2015/03/13/Presentation/ezvis-dashboard.png">
-<p>Figure 2 : Détail du tableau de bord</p>
-<p>La suite du développement prévoit d’autres types de représentations comme des cartes, des réseaux ainsi que des fonctionnalités comme l’export ou la sécurisation de l’interface.</p>
-<h1 id="Exemples_d’usages">Exemples d’usages</h1><p>Le principal besoin auquel répond ezVIS est la création de tableaux de bord mettant en évidence des informations de type bibliométrique. La facilité de création et de configuration d’une instance est l’un des avantages évidents de cet outil qui autorise la multiplication des tableaux de bord.  Toujours dans le domaine des corpus de notices bibliographiques, un tel outil permet également de vérifier le contenu et la qualité des données.<br>Enfin, le fait qu’il s’agisse d’un logiciel libre autorise son appropriation au-delà de la production scientifique comme par exemple pour l’analyse de fichiers de « logs » dans le cadre du projet ezPAARSE3.</p>
-<h2 id="Connaissance_de_la_production_scientifique_liée_à_une_thématique">Connaissance de la production scientifique liée à une thématique</h2><p>À partir d’un corpus constitué thématiquement, il est possible de mettre en évidence des éléments concernant la production scientifique, son évolution ainsi que la répartition en sous-thématiques, par exemple. La figure 3 illustre l’utilisation d’un graphique de type camembert qui représente la répartition thématique du corpus. Il est possible en cliquant sur une partie du graphique d’avoir accès à la liste des résultats correspondants. Il est également possible d’utiliser les facettes pour mettre à jour le graphique de manière dynamique le graphique.</p>
-<img src="/2015/03/13/Presentation/ezvis-facets.png">
-<p>Figure 3 : Mise en évidence de l’utilisation des facettes pour filtrer les résultats</p>
-<h2 id="Exploration_du_contenu_d’un_corpus">Exploration du contenu d’un corpus</h2><p>Il peut être utile avant la mise en ligne de notices bibliographiques de vérifier la qualité des données ou leur homogénéité lorsque les origines et les formats sont différents. La figure 4 illustre l’exploration du corpus mis à disposition par un éditeur dans le cadre d’un projet.</p>
-<img src="/2015/03/13/Presentation/ezvis-biblio-corpus.png">
-<p>Figure 4 : Exploration d’un corpus de notice bibliographique</p>
-<h2 id="Analyse_des_consultations_de_ressources_en_ligne">Analyse des consultations de ressources en ligne</h2><p>ezVIS peut être utilisé pour réaliser des comptages d’autres types d’informations structurées et le choix d’un logiciel libre favorise fortement l’élargissement de l’usage. La figure 5 illustre l’utilisation d’ezVIS pour la mise en évidence du détail des consultations.</p>
-<img src="/2015/03/13/Presentation/ezvis-logs.png">
-<p>Figure 5 : Détail  des consultations de ressources numériques</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://madec-project.github.io/2015/03/13/Presentation/" data-id="cia9egvud0013asp51z337kb8" class="article-share-link">Share</a>
-      
-        <a href="http://madec-project.github.io/2015/03/13/Presentation/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ezmaster/">ezmaster</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ezvis/">ezvis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/presentation/">présentation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vsst/">vsst</a></li></ul>
 
     </footer>
   </div>
