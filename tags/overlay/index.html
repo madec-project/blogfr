@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2015/6 | MADEC</title>
+  <title>Tag: overlay | MADEC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="MADEC">
-<meta property="og:url" content="http://madec-project.github.io/archives/2015/06/index.html">
+<meta property="og:url" content="http://madec-project.github.io/tags/overlay/index.html">
 <meta property="og:site_name" content="MADEC">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -167,128 +167,6 @@
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/csv/">csv</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/documentFields/">documentFields</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/export/">export</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ezref/">ezref</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ezvis/">ezvis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flyingFields/">flyingFields</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">http</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jbj/">jbj</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/overlay/">overlay</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tsv/">tsv</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/xml/">xml</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Sprint-Review-15W19-Exports" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/06/01/Sprint-Review-15W19-Exports/" class="article-date">
-  <time datetime="2015-06-01T13:00:00.000Z" itemprop="datePublished">1 6 2015</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/06/01/Sprint-Review-15W19-Exports/">Sprint Review 15W19: Exports</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Voici le support de la Sprint Review n°11, concernant les <em>exports</em>.</p>
-<h1 id="Tâches">Tâches</h1><ul>
-<li>19 tâches prévues</li>
-<li>16 tâches effectuées (dont 11 avaient été prévues)</li>
-<li>24 tâches au total</li>
-<li>plus de 38 points de complexité prévus</li>
-<li>38 points de complexité effectués (un peu plus que la moyenne)</li>
-</ul>
-<h1 id="VSST_2015">VSST 2015</h1><p>ezVIS a été présenté à VSST 2015 par Anne-Marie BADOLATO, le <a href="http://atlas.irit.fr/programme.html" target="_blank" rel="external">13 mai 2015</a>.<br>À l’occasion, une instance protégée par login/mot de passe a été présentée, qui concernait une étude  réelle pour l’IRSTV. Cette instance tournait sur la machine virtuelle d’intégration, car nous n’avons pas été en mesure de mettre en place la machine de production <em>et de la tester</em> dans les temps.</p>
-<h2 id="forever">forever</h2><p>En effet, une des différences entre la machine de production et la machine d’intégration est que la machine de production utilise <a href="https://www.npmjs.com/package/forever" target="_blank" rel="external">forever</a> pour s’assurer qu’<code>ezmaster</code> est relancé automatiquement si jamais il plante.</p>
-<p>Ce qui a retardé l’utilisation de la machine de production est qu’<code>ezmaster</code> s’est révélé incapable, quand il était lancé par <code>forever</code>, de créer des fichiers temporaires dans le répertoire courant. Ceci a donné lieu à une correction d’<code>ezmaster</code>, mais pas assez tôt pour que ce soit la machine de production qu’on utilise.</p>
-<h1 id="ezMaster">ezMaster</h1><p>En plus de la correction apportée pour fonctionner avec <a href="#forever">forever</a>, ezMaster a connu plusieurs changements:</p>
-<ol>
-<li>une optimisation de la fonction <em>reverse-proxy</em>, ce qui a éliminé les ralentissements observés après quelques utilisations des instances qu’<code>ezmaster</code> surveillait <a href="https://github.com/madec-project/ezmaster/commit/11fba019f60f782a80d6cbdd31649c7667926a66" target="_blank" rel="external">11fba01</a>,</li>
-<li>l’affichage de l’app utilisée par une instance, et de sa version <a href="https://github.com/madec-project/ezvis/issues/30" target="_blank" rel="external">#30</a><img src="/2015/06/01/Sprint-Review-15W19-Exports/ezmaster_app_version.png"></li>
-<li>ajout d’une prévisualisation de l’URL que va donner le nom technique d’une instance qu’on est en train de créer <a href="https://github.com/madec-project/ezvis/issues/32" target="_blank" rel="external">#32</a></li>
-<li>le numéro de version d’une instance a été rendu optionnel (dans le but de simplifier les URL résultantes) <a href="https://github.com/madec-project/ezvis/issues/18" target="_blank" rel="external">#18</a><img src="/2015/06/01/Sprint-Review-15W19-Exports/ezmaster_optional_version.gif">
-</li>
-</ol>
-<h1 id="ezVIS">ezVIS</h1><p>La plupart des tâches de ce sprint étaient liées à <code>ezvis</code>.</p>
-<h2 id="Bug">Bug</h2><p>Nous avons corrigé un bug qui se produisait dans un réseau avec des facettes: quand on cliquait sur une facette, les restrictions apportées pour la création du réseau (en particulier <code>selector</code>, mais aussi <code>maxItems</code> et <code>threshold</code>) n’étaient pas appliquées.<br>Cela posait un problème quand le nombre de liens du réseau non restreint était trop important pour que le réseau puisse s’afficher dans le navigateur, gelant ainsi le navigateur.</p>
-<p>Toutefois, cette correction ne touche que <code>selector</code> car les autres restrictions, appliquées en plus de celle de la facette, mène souvent à des graphes vides, ce qui est difficilement compréhensible.</p>
-<p>Voir <a href="https://github.com/madec-project/ezvis/issues/39" target="_blank" rel="external">issue #39</a>.</p>
-<h2 id="Améliorations_mineures">Améliorations mineures</h2><ul>
-<li><a href="https://github.com/madec-project/ezvis/issues/38" target="_blank" rel="external">#38</a>: ajout de la possibilité de rendre les labels sur les graphiques plus courts (sur le même principe que ce qui avait déjà été fait pour les <a href="https://github.com/madec-project/ezvis#horizontalbars" target="_blank" rel="external"><code>horizontalbars</code></a>), pour les <code>histogram</code>s, et pour les <code>pie</code>s. Pour ce dernier, ce ne sont pas les labels eux-mêmes qui sont raccourcis, mais leur équivalent dans la légende du camembert,<img src="/2015/06/01/Sprint-Review-15W19-Exports/ezvis_pie_shortlabels.png"></li>
-<li><a href="https://github.com/madec-project/ezvis/issues/31" target="_blank" rel="external">#31</a>: la référence à amCharts qui apparaissait comme un petit lien <code>js Charts</code> en haut à gauche des graphiques a été déplacé en bas à droite des graphiques, emplacement jugé moins gênant (il est moins souvent placé sur une barre sur laquelle on clique). Rappel: cette référence est nécessaire, car l’enlever requerrait de payer la société qui produit cette bibliothèque,</li>
-<li><a href="https://github.com/madec-project/ezvis/issues/28" target="_blank" rel="external">#28</a>: les labels des camemberts (qui apparaissent autour des parts du graphique) sont maintenant désactivables (pour ne plus voir que les nombres). Il faut utiliser <code>removeLabels: true</code>,</li>
-<li><a href="https://github.com/madec-project/ezvis/issues/37" target="_blank" rel="external">#37</a>: nous avons ajouté un exemple de configuration <code>ezvis</code> pour des fichiers <code>.tsv</code> <a href="https://github.com/madec-project/showcase/blob/master/basis_loader_tsv/repository.json" target="_blank" rel="external">dans le showcase</a>.</li>
-</ul>
-<h2 id="Chargement_de_-TSV">Chargement de .TSV</h2><p>Après l’écriture de la mini-configuration de déclaration du loader pour charger des <code>.tsv</code> minimaux, nous avons voulu créer un exemple réel de chargement de fichiers tirés du WoS (Web of Science).<br>Il s’est trouvé que les fichiers tels quels ne se chargeaient pas dans <code>ezvis</code>, même après avoir utilisé des options peu courantes de <code>castor-load-csv</code>.</p>
-<p>Après investigation, le nœud du problème se trouvait dans la bibliothèque <code>csv-string</code> qui analyse le TSV dans <code>castor-load-csv</code>. L’auteur de la bibliothèque l’a améliorée pour qu’elle prenne aussi en compte ces fichiers TSV (il n’y a pas vraiment de norme concernant la manière d’encoder les doubles quotes (guillemets anglais) dans ces fichiers). Voir <a href="https://github.com/touv/node-csv-string/pull/19" target="_blank" rel="external">les tests proposés</a> pour plus de détails.</p>
-<h2 id="Exports">Exports</h2><p>Le thème de ce sprint était l’<em>export</em> en général. Il se spécialise en:</p>
-<ul>
-<li>export des images des graphiques</li>
-<li>export des documents associés aux graphiques</li>
-<li>export des données des graphiques (ce n’était pas demandé)</li>
-</ul>
-<h3 id="graphiques">graphiques</h3><h4 id="amCharts">amCharts</h4><p>Les graphiques <code>horizontalbars</code>, <code>histogram</code>, <code>pie</code> et <code>map</code> utilisent la même bibliothèque qui vient d’être <a href="http://www.amcharts.com/blog/version-3-14-released/" target="_blank" rel="external">mise à jour</a>. Surprise: le thème de cette mise à jour est l’export. Cette version améliore une fonctionnalité qui existait déjà, en l’étendant à d’autres formats et aussi aux données qui ont permis la création du graphique.</p>
-<p>Ces graphiques simples sont donc désormais exportables à partir d’un menu présent en haut à droite. Ils permettent:</p>
-<ul>
-<li>l’annotation (dessin sur l’image, à la souris),<img src="/2015/06/01/Sprint-Review-15W19-Exports/ezvis_annotation.png"></li>
-<li>la sauvegarde de l’image (avec son éventuelle annotation), aux formats JPG, PNG, SVG et même PDF,</li>
-<li>la sauvegarde des données ayant permis la construction du graphique (sauf pour les cartes, que nous n’avons pas réussi à activer), aux formats CSV, XLSX et JSON.<img src="/2015/06/01/Sprint-Review-15W19-Exports/ezvis_chart_image_exports.gif">
-</li>
-</ul>
-<p>Lors des tests, nous nous sommes aperçus que l’export CSV exportait toutes les valeurs sauf la première (en général la plus grande). La déclaration d’un problème dans leur système de support a provoqué une mise à jour dans la journée. Bravo à <a href="http://www.amcharts.com/" target="_blank" rel="external">amCharts</a>.</p>
-<h4 id="cytoscape">cytoscape</h4><p>Nous avions reperé qu’il existait aussi une fonction d’export dans la bibliothèque <a href="http://js.cytoscape.org/" target="_blank" rel="external">Cytoscape</a> que nous utilisons pour la représentation graphique des réseaux. Il s’est avéré que cette fonction était beaucoup moins clé-en-main que celle d’amCharts.</p>
-<p>Le menu d’export des réseaux se résume donc à un bouton qui exporte une image PNG.</p>
-<img src="/2015/06/01/Sprint-Review-15W19-Exports/ezvis_export_network.png">
-<p>Pour le détails des exports des graphiques, voir le <a href="https://github.com/madec-project/ezvis/issues/36" target="_blank" rel="external">ticket #36</a>.</p>
-<h3 id="documents">documents</h3><p>L’export des documents était déjà présent dans <code>ezvis</code>, mais uniquement sur la page des documents, où on exporte tous les documents présents sur la page, avec une sélection basique, par filtrage.</p>
-<p>Il est désormais présent aussi sur la page des graphiques, et prend aussi en compte les filtres venant du graphique et des facettes. Voir <a href="https://github.com/madec-project/ezvis/issues/20" target="_blank" rel="external">#20</a>.</p>
-<img src="/2015/06/01/Sprint-Review-15W19-Exports/ezvis_chart_exports.gif">
-<h2 id="http_dans_les_documentFields_/_nosave">http dans les documentFields / nosave</h2><p>Lors de <a href="/2015/05/04/Sprint-Review-15W14-ressources-externes/">la dernière Sprint Review</a>, nous avions montré un usage des <a href="/2015/05/04/Sprint-Review-15W14-ressources-externes/#flyingFields"><code>flyingFields</code></a> qui était certes visuel, mais qui s’est avéré non pertinent: nous modifiions à la volée (<em>flying</em>) les <em>identifiants</em> du graphique.<br>Ce faisant, nous avions rendu les filtres inopérants (cliquer sur un pays ne retournait plus les documents publiés dans ces pays).<br>Cela n’invalide pas l’utilité des <code>flyingFields</code>, puisque leur utilisation reste valable quand on modifie les <em>valeurs</em> projetées dans les graphiques (par exemple, pour afficher un taux de citation par année, et pas seulement un nombre de citations).</p>
-<p>Mais le besoin d’externaliser des tables de références (ici, une correspondance entre les noms de pays et leur code ISO) perdure, donc nous avons implémenté l’utilisation de sources extérieures (comme dans les <code>corpusFields</code>) depuis les <code>documentFields</code>.</p>
-<p>Comme nous ne voulons pas surcharger la base en dupliquant des tables dans chaque document, nous avons introduit une propriété pour ces <code>documentFields</code> que nous voulons utiliser, mais pas sauvegarder dans la base: <code>nosave</code>. Il suffit de positionner cette propriété à <code>true</code> pour que le champ ne soit pas sauvegardé mais tout de même disponible pour le calcul d’autres <code>documentFields</code>.</p>
-<p>Voir <a href="https://github.com/madec-project/ezvis/issues/40" target="_blank" rel="external">#40</a>, et <a href="https://github.com/madec-project/ezvis#nosave" target="_blank" rel="external">nosave</a>.</p>
-<h2 id="JBJ">JBJ</h2><h3 id="zip">zip</h3><p>Pour calculer des expressions impliquant les valeurs de deux tableaux (comme pour normaliser des valeurs par années), il nous fallait être capable de fusionner deux tableaux de même longueur.</p>
-<p>Exemple:</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  "<span class="attribute">publiPerYear</span>": <span class="value">[</span><br><span class="line">    &#123;"<span class="attribute">_id</span>":<span class="value"><span class="string">"2007"</span></span>,"<span class="attribute">value</span>":<span class="value"><span class="number">538</span></span>&#125;,</span><br><span class="line">    &#123;"<span class="attribute">_id</span>":<span class="value"><span class="string">"2008"</span></span>,"<span class="attribute">value</span>":<span class="value"><span class="number">577</span></span>&#125;,</span><br><span class="line">    &#123;"<span class="attribute">_id</span>":<span class="value"><span class="string">"2009"</span></span>,"<span class="attribute">value</span>":<span class="value"><span class="number">611</span></span>&#125;,</span><br><span class="line">    &#123;"<span class="attribute">_id</span>":<span class="value"><span class="string">"2010"</span></span>,"<span class="attribute">value</span>":<span class="value"><span class="number">548</span></span>&#125;,</span><br><span class="line">    &#123;"<span class="attribute">_id</span>":<span class="value"><span class="string">"2011"</span></span>,"<span class="attribute">value</span>":<span class="value"><span class="number">567</span></span>&#125;,</span><br><span class="line">    &#123;"<span class="attribute">_id</span>":<span class="value"><span class="string">"2012"</span></span>,"<span class="attribute">value</span>":<span class="value"><span class="number">608</span></span>&#125;]</span>,</span><br><span class="line">  "<span class="attribute">citationsPerYear</span>": <span class="value">[</span><br><span class="line">    &#123;"<span class="attribute">_id</span>":<span class="value"><span class="string">"2007"</span></span>,"<span class="attribute">value</span>":<span class="value"><span class="number">7681</span></span>&#125;,</span><br><span class="line">    &#123;"<span class="attribute">_id</span>":<span class="value"><span class="string">"2008"</span></span>,"<span class="attribute">value</span>":<span class="value"><span class="number">5479</span></span>&#125;,</span><br><span class="line">    &#123;"<span class="attribute">_id</span>":<span class="value"><span class="string">"2009"</span></span>,"<span class="attribute">value</span>":<span class="value"><span class="number">5043</span></span>&#125;,</span><br><span class="line">    &#123;"<span class="attribute">_id</span>":<span class="value"><span class="string">"2010"</span></span>,"<span class="attribute">value</span>":<span class="value"><span class="number">3698</span></span>&#125;,</span><br><span class="line">    &#123;"<span class="attribute">_id</span>":<span class="value"><span class="string">"2011"</span></span>,"<span class="attribute">value</span>":<span class="value"><span class="number">2927</span></span>&#125;,</span><br><span class="line">    &#123;"<span class="attribute">_id</span>":<span class="value"><span class="string">"2012"</span></span>,"<span class="attribute">value</span>":<span class="value"><span class="number">2049</span></span>&#125;]</span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
-<p>En divisant <code>citationsPerYear[i]</code> par <code>publiPerYear[i]</code>:</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  "<span class="attribute">zip</span>": <span class="value">[ <span class="string">"citationsPerYear"</span>, <span class="string">"publiPerYear"</span> ]</span>,</span><br><span class="line">  "<span class="attribute">foreach</span>": <span class="value">&#123;</span><br><span class="line">    "<span class="attribute">compute</span>": <span class="value"><span class="string">"citationsPerYear / publiPerYear"</span></span><br><span class="line">  </span>&#125;</span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
-<p>Dans cet exemple, <code>&quot;zip&quot;: [ &quot;citationsPerYear&quot;, &quot;publiPerYear&quot; ]</code> renvoie, en JBJ:</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    &#123;"<span class="attribute">_id</span>":<span class="value"><span class="string">"2007"</span></span>,"<span class="attribute">citationsPerYear</span>":<span class="value"><span class="number">7681</span></span>, "<span class="attribute">publiPerYear</span>": <span class="value"><span class="number">538</span></span>&#125;,</span><br><span class="line">    &#123;"<span class="attribute">_id</span>":<span class="value"><span class="string">"2008"</span></span>,"<span class="attribute">citationsPerYear</span>":<span class="value"><span class="number">5479</span></span>, "<span class="attribute">publiPerYear</span>": <span class="value"><span class="number">577</span></span>&#125;,</span><br><span class="line">    &#123;"<span class="attribute">_id</span>":<span class="value"><span class="string">"2009"</span></span>,"<span class="attribute">citationsPerYear</span>":<span class="value"><span class="number">5043</span></span>, "<span class="attribute">publiPerYear</span>": <span class="value"><span class="number">611</span></span>&#125;,</span><br><span class="line">    &#123;"<span class="attribute">_id</span>":<span class="value"><span class="string">"2010"</span></span>,"<span class="attribute">citationsPerYear</span>":<span class="value"><span class="number">3698</span></span>, "<span class="attribute">publiPerYear</span>": <span class="value"><span class="number">548</span></span>&#125;,</span><br><span class="line">    &#123;"<span class="attribute">_id</span>":<span class="value"><span class="string">"2011"</span></span>,"<span class="attribute">citationsPerYear</span>":<span class="value"><span class="number">2927</span></span>, "<span class="attribute">publiPerYear</span>": <span class="value"><span class="number">567</span></span>&#125;,</span><br><span class="line">    &#123;"<span class="attribute">_id</span>":<span class="value"><span class="string">"2012"</span></span>,"<span class="attribute">citationsPerYear</span>":<span class="value"><span class="number">2049</span></span>, "<span class="attribute">publiPerYear</span>": <span class="value"><span class="number">608</span></span>&#125;]</span><br></pre></td></tr></table></figure>
-<p>Voir <a href="https://github.com/castorjs/node-jbj/issues/8" target="_blank" rel="external">JBJ#8</a></p>
-<h1 id="getproperty">getproperty</h1><p>De plus, il manquait une action capable de retourner la valeur d’un tableau associatif correspondant à une clé:</p>
-<p>Ex:</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  "<span class="attribute">set</span>": <span class="value">[ <span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span> ]</span>,</span><br><span class="line">  "<span class="attribute">getProperty</span>": <span class="value"><span class="string">"0"</span></span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
-<p>renvoie</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"a"</span></span><br></pre></td></tr></table></figure>
-<p>et</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  "<span class="attribute">set</span>": <span class="value">&#123; "<span class="attribute">a</span>": <span class="value"><span class="number">0</span></span>, "<span class="attribute">b</span>": <span class="value"><span class="number">1</span></span>, "<span class="attribute">c</span>":<span class="value"><span class="number">2</span> </span>&#125;</span>,</span><br><span class="line">  "<span class="attribute">getProperty</span>": <span class="value"><span class="string">"b"</span></span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
-<p>renvoie</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
-<p>Voir <a href="https://github.com/castorjs/node-jbj/issues/9" target="_blank" rel="external">JBJ#9</a></p>
-<h2 id="commande_ezref">commande ezref</h2><p>La version 1.0.0 d’<code>ezref</code> devait être lancée de manière non triviale quand ce n’était pas par <code>ezmaster</code>. Nous avons donc publié la version 1.1.0 qui ajoute une commande <code>ezref</code> quand on l’installe via:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g ezref</span><br></pre></td></tr></table></figure>
-<h2 id="Installation_/_mise_à_jour">Installation / mise à jour</h2><p>Après l’<a href="/2015/03/30/Sprint-Review-15W09-stabilisation/#dalekjs">écriture de tests via dalekjs</a>, l’installation d’<code>ezvis</code> ramenait des modules utiles uniquement pour le développement (pour ces tests).</p>
-<p>Pour éviter de grossir les fichiers d’<code>ezvis</code>, on peut l’installer en utilisant l’option <code>--production</code>:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --production -g ezvis</span><br></pre></td></tr></table></figure>
-<p>C’est la même commande qui permet de mettre à jour <code>ezvis</code> en installant la dernière version à la place de l’éventuelle version installée, quelle qu’elle soit.</p>
-<p>À ce jour, c’est la version 6.6.0.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://madec-project.github.io/2015/06/01/Sprint-Review-15W19-Exports/" data-id="cib7ovrhf000ockp5st6yz345" class="article-share-link">Share</a>
-      
-        <a href="http://madec-project.github.io/2015/06/01/Sprint-Review-15W19-Exports/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/amcharts/">amcharts</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/csv/">csv</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cytoscape/">cytoscape</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/export/">export</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ezmaster/">ezmaster</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ezref/">ezref</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ezvis/">ezvis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flyingFields/">flyingFields</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/forever/">forever</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jbj/">jbj</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/json/">json</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pdf/">pdf</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/png/">png</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/svg/">svg</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tsv/">tsv</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vsst/">vsst</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/xlsx/">xlsx</a></li></ul>
 
     </footer>
   </div>
