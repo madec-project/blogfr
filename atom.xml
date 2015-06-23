@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Visualisation d'information structurée en rapport]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://madec-project.github.io/"/>
-  <updated>2015-06-22T15:52:33.000Z</updated>
+  <updated>2015-06-23T07:28:03.000Z</updated>
   <id>http://madec-project.github.io/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://madec-project.github.io/2015/06/23/Sprint-Review-15W23-calculs-complexes/"/>
     <id>http://madec-project.github.io/2015/06/23/Sprint-Review-15W23-calculs-complexes/</id>
     <published>2015-06-23T12:00:00.000Z</published>
-    <updated>2015-06-22T15:52:33.000Z</updated>
+    <updated>2015-06-23T07:28:03.000Z</updated>
     <content type="html"><![CDATA[<p>Nous voici arrivés à la <em>sprint review</em> n°12, qui concerne les <em>calculs complexes</em>.<br>Comme le dit Anne-Marie, la division est une opération complexe par rapport au simple comptage. Mais la complexité dont nous parlons réside plutôt dans l’appel des données intégrées aux calculs: ils sont externes, dans des tableaux.</p>
 <h1 id="Tâches">Tâches</h1><ul>
 <li>10 tâches prévues</li>
@@ -85,7 +85,7 @@
 <h1 id="Test_de_la_machine_de_production_avec_plus_de_dix_rapports">Test de la machine de production avec plus de dix rapports</h1><p>13 rapports ont été créés sur la machine de production, sans aucun problème (rappel: 12 rapports étaient déjà de trop sur la machine d’intégration avant qu’ezMaster soit corrigé).</p>
 <h1 id="Documentation_du_protocole_HTTP_dans_les_documentFields">Documentation du protocole HTTP dans les documentFields</h1><p>L’utilisation du protocole HTTP dans les <code>documentFields</code> n’avait pas été documentée, c’est chose faite: <a href="https://github.com/madec-project/ezvis/commit/6a7147cda9bdc27dbb7e942e477ebdebd40e9495" target="_blank" rel="external">6a7147</a>.</p>
 <h1 id="Modification_des_entêtes_des_exports">Modification des entêtes des exports</h1><p>Les exports de documents prennent maintenant comme noms de colonnes les labels des champs, et non plus leurs identifiants. Voir <a href="https://github.com/madec-project/ezvis/issues/48" target="_blank" rel="external">ticket 48</a>.</p>
-<h1 id="Mise_à_jour_de_getting-started-with-visir">Mise à jour de getting-started-with-visir</h1><p>Le dépôt <code>getting-started-with-visir</code> a été renommé en <code>getting-started-with-ezvis</code>, la documentation adaptée à la version 6+ d’ezVIS, ainsi que l’exemple fourni.</p>
+<h1 id="Mise_à_jour_de_getting-started-with-visir">Mise à jour de getting-started-with-visir</h1><p>Le dépôt <code>getting-started-with-visir</code> a été renommé en <a href="https://github.com/madec-project/getting-started-with-ezvis" target="_blank" rel="external"><code>getting-started-with-ezvis</code></a>, la documentation adaptée à la version 6+ d’ezVIS, ainsi que l’exemple fourni.</p>
 <h1 id="Explication_d’ezVIS_pour_ISTEX">Explication d’ezVIS pour ISTEX</h1><p>Kibana ne fournissant pas assez de graphiques, ISTEX s’est intéressé à ezVIS.<br>C’est l’occasion pour nous d’expérimenter le loader de corpus JSON <a href="https://github.com/castorjs/castor-load-jsoncorpus" target="_blank" rel="external">castor-load-jsoncorpus</a>.</p>
 <h1 id="Mise_à_jour_/_installation_d’ezVIS">Mise à jour / installation d’ezVIS</h1><p>Pour profiter de la dernière version d’ezVIS:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --production -g ezvis</span><br></pre></td></tr></table></figure>
