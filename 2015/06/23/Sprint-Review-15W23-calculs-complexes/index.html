@@ -146,10 +146,12 @@
 <img src="/2015/06/23/Sprint-Review-15W23-calculs-complexes/ezvis-overlay-6.7.1.png">
 <h1 id="Tests_de_chargement_(-tsv_WoS)">Tests de chargement (.tsv WoS)</h1><p>Nous utilisons des fichiers extraits du WoS (Web of Science) au format TSV (Tabulation Separated Values), et certaines notices passaient mal.</p>
 <p>Nous avons trouvé des champs contenant des guillemets (<em>double quotes</em> anglaises), non échappés (mais c’est normal, il n’y avait pas d’ambiguité), et c’est visiblement ce qui posait problème. Une correction a été apportée à la bibliothèque qui analyse les CSV: csv-string. Voir <a href="https://github.com/touv/node-csv-string/pull/19" target="_blank" rel="external">ticket 19 de csv-string</a>.</p>
-<p>Mais après tests, les fichiers qui posaient problème ne passent toujours pas correctement.</p>
+<p>Mais après tests, les fichiers qui posaient problème ne passent toujours pas correctement: sur un corpus de 999 notices, seules les notices contenant des guillemets ne sont pas chargées (en enlevant les guillemets, tout passe).</p>
 <h1 id="Tests_de_dépôt_de_plusieurs_fichiers_(XML_ou_CSV)">Tests de dépôt de plusieurs fichiers (XML ou CSV)</h1><p>Nous avons remarqué un comportement erronné d’ezVIS: quand on met deux fichiers XML dans le répertoire des données, on obtient des erreurs SAX, alors que séparément, les deux fichiers sont bien chargés.</p>
 <p>Après test, ce comportement ne se produit pas avec des fichiers CSV.</p>
 <h1 id="Test_de_la_machine_de_production_avec_plus_de_dix_rapports">Test de la machine de production avec plus de dix rapports</h1><p>13 rapports ont été créés sur la machine de production, sans aucun problème (rappel: 12 rapports étaient déjà de trop sur la machine d’intégration avant qu’ezMaster soit corrigé).</p>
+<h1 id="Test_de_la_prise_en_compte_des_modifications_de_configuration_dans_ezMaster">Test de la prise en compte des modifications de configuration dans ezMaster</h1><p>Les modifications des <code>documentFields</code> dans la configuration d’une instance ne sont pas prises en compte, même après rechargement du corpus.</p>
+<h1 id="Test_de_la_prise_en_compte_des_modifications_de_corpus_dans_ezMaster">Test de la prise en compte des modifications de corpus dans ezMaster</h1><p>Les modifications du corpus d’une instance (suppression de notices) ne sont pas prises en compte.<br>Par contre l’ajout d’un nouveau corpus dans la même instance est bien traité et les modifications des <code>documentFields</code> dans la configuration d’une instance sont également prises en compte pour le nouveau corpus.</p>
 <h1 id="Documentation_du_protocole_HTTP_dans_les_documentFields">Documentation du protocole HTTP dans les documentFields</h1><p>L’utilisation du protocole HTTP dans les <code>documentFields</code> n’avait pas été documentée, c’est chose faite: <a href="https://github.com/madec-project/ezvis/commit/6a7147cda9bdc27dbb7e942e477ebdebd40e9495" target="_blank" rel="external">6a7147</a>.</p>
 <h1 id="Modification_des_entêtes_des_exports">Modification des entêtes des exports</h1><p>Les exports de documents prennent maintenant comme noms de colonnes les labels des champs, et non plus leurs identifiants. Voir <a href="https://github.com/madec-project/ezvis/issues/48" target="_blank" rel="external">ticket 48</a>.</p>
 <h1 id="Mise_à_jour_de_getting-started-with-visir">Mise à jour de getting-started-with-visir</h1><p>Le dépôt <code>getting-started-with-visir</code> a été renommé en <a href="https://github.com/madec-project/getting-started-with-ezvis" target="_blank" rel="external"><code>getting-started-with-ezvis</code></a>, la documentation adaptée à la version 6+ d’ezVIS, ainsi que l’exemple fourni.</p>
@@ -161,7 +163,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://madec-project.github.io/2015/06/23/Sprint-Review-15W23-calculs-complexes/" data-id="cib90ghjy0005ixp52yq7kh65" class="article-share-link">Share</a>
+      <a data-url="http://madec-project.github.io/2015/06/23/Sprint-Review-15W23-calculs-complexes/" data-id="cib92uocd0005v2p5fe9qg8e3" class="article-share-link">Share</a>
       
         <a href="http://madec-project.github.io/2015/06/23/Sprint-Review-15W23-calculs-complexes/#disqus_thread" class="article-comment-link">Comments</a>
       
