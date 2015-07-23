@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Tag: bugs | MADEC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MADEC">
+<meta property="og:url" content="http://madec-project.github.io/tags/bugs/index.html">
+<meta property="og:site_name" content="MADEC">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MADEC">
+<meta name="twitter:description">
+  
+    <link rel="alternative" href="atom.xml" title="MADEC" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">MADEC</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Visualisation d&#39;information structurée en rapport</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="q" value="site:http://madec-project.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Sprint-Review-15W26-consolidation" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/07/23/Sprint-Review-15W26-consolidation/" class="article-date">
+  <time datetime="2015-07-23T12:00:00.000Z" itemprop="datePublished">23 7 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/23/Sprint-Review-15W26-consolidation/">Sprint Review #15W26: consolidation</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Ce <em>sprint</em> n°13 a été consacré à la consolidation de l’outil ezVIS.<br>Nous avons principalement modifié la documentation et corrigé des bugs.</p>
+<h1 id="Tâches">Tâches</h1><ul>
+<li>20 tâches prévues</li>
+<li>18 tâches effectuées (dont 15 avaient été prévues)</li>
+<li>24 tâches au total</li>
+<li>plus de 24 points de complexité prévus</li>
+<li>37,5 points de complexité effectués</li>
+</ul>
+<p>Le nombre de points de complexité prévus était très peu précis, car nous avions plusieurs bugs.<br>Les bugs sont par définition difficile à estimer.<br>N’ont pas été comptabilisés ici les travaux de déclaration des bugs par les documentalistes/utilisateurs.</p>
+<h1 id="Production">Production</h1><h2 id="Basculements_des_URL_publics">Basculements des URL publics</h2><p>Les URL publics des rapports du service Appui au Pilotage de l’Inist pointent maintenant sur la machine de production dont la mise au point a été finalisée (via puppet).<br>Au passage, les instances ont été copiées de la machine d’intégration vers la machine de production (et vérifiées par les gestionnaires de ces instances).</p>
+<h2 id="Augmentation_de_l’espace_disque">Augmentation de l’espace disque</h2><p>À cause de la manière dont ezVIS gère le cache des requêtes qu’il utilise, la place utilisée par une de ses instances dans la base de données augmente à mesure que ses utilisateurs en font des usages variés.</p>
+<p>C’est pourquoi nous avons fait augmenter par le service Ingénierie de Production l’espace disque disponible sur la machine de production (c’était 10 Go au total sur la machine d’intégration, c’est 200 Go sur la machine de production).</p>
+<h1 id="Bugs">Bugs</h1><h2 id="Déclaration_des_bugs_par_les_gestionnaires">Déclaration des bugs par les gestionnaires</h2><p>Ce sprint ayant été dédié à la consolidation d’ezVIS, nous avons demandé aux gestionnaires des instances déjà existantes de faire une déclaration formelle des bugs qu’ils ont rencontré.<br>De plus, ils ont dû faire en faire qu’on puisse reproduire ces bugs.<br>Nous avons donc utilisé l’application ezREF présente sur la machine d’intégration, et fait utiliser l’interface de dépôt de fichiers sur ce serveur pour y mettre:</p>
+<ul>
+<li>la description du dysfonctionnement (dans un fichier <code>*README.txt</code>)</li>
+<li>la configuration de l’instance (dans un fichier <code>*.json</code>)</li>
+<li>le(s) corpus dans un ou plusieurs fichier(s) dont préfixe était commun à tous les fichiers concernant ce bug.</li>
+</ul>
+<p>Tout le monde a parfaitement joué le jeu et nous avons obtenu la description de 5 bugs:</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">(-rw-rw-r--)    <span class="number">3.6</span>M    Bibliotep_XML_14_08_corpus_final_NCT<span class="class">.xml</span></span><br><span class="line">(-rw-rw-r--)    <span class="number">4.2</span>M    Bibliotep_XML_14_10_corpus_final_NCT<span class="class">.xml</span></span><br><span class="line">(-rw-rw-r--)    <span class="number">438</span>B    Bibliotep_XML_bibliotep<span class="class">.README</span><span class="class">.txt</span></span><br><span class="line">(-rw-rw-r--)    <span class="number">25.4</span>k   Bibliotep_XML_bibliotep<span class="class">.json</span></span><br><span class="line">(-rw-rw-r--)    <span class="number">1.1</span>k    bibliotep_entier_pertes<span class="class">.README</span><span class="class">.txt</span></span><br><span class="line">(-rw-rw-r--)    <span class="number">6.0</span>k    bibliotep_entier_pertes<span class="class">.json</span></span><br><span class="line">(-rw-rw-r--)    <span class="number">1.7</span>M    bibliotep_entier_pertes_2005-<span class="number">2006</span><span class="class">.csv</span></span><br><span class="line">(-rw-rw-r--)    <span class="number">2.5</span>M    bibliotep_entier_pertes_2006-<span class="number">2007</span><span class="class">.csv</span></span><br><span class="line">(-rw-rw-r--)    <span class="number">2.7</span>M    bibliotep_entier_pertes_2007-<span class="number">2008</span><span class="class">.csv</span></span><br><span class="line">(-rw-rw-r--)    <span class="number">2.7</span>M    bibliotep_entier_pertes_2008-<span class="number">2009</span><span class="class">.csv</span></span><br><span class="line">(-rw-rw-r--)    <span class="number">2.8</span>M    bibliotep_entier_pertes_2009_2010<span class="class">.csv</span></span><br><span class="line">(-rw-rw-r--)    <span class="number">2.6</span>M    bibliotep_entier_pertes_2010-<span class="number">2011</span><span class="class">.csv</span></span><br><span class="line">(-rw-rw-r--)    <span class="number">2.7</span>M    bibliotep_entier_pertes_2011-<span class="number">2012</span><span class="class">.csv</span></span><br><span class="line">(-rw-rw-r--)    <span class="number">2.7</span>M    bibliotep_entier_pertes_2012-<span class="number">2013</span><span class="class">.csv</span></span><br><span class="line">(-rw-rw-r--)    <span class="number">2.2</span>M    bibliotep_entier_pertes_2013-<span class="number">2014</span><span class="class">.csv</span></span><br><span class="line">(-rw-rw-r--)    <span class="number">2.7</span>M    bibliotep_entier_pertes_2014-<span class="number">2015</span><span class="class">.csv</span></span><br><span class="line">(-rw-rw-r--)    <span class="number">6.3</span>k    jsoncorpus_istex<span class="class">.json</span></span><br><span class="line">(-rw-rw-r--)    <span class="number">498</span>B    jsoncorpus_istex_README<span class="class">.txt</span></span><br><span class="line">(-rw-rw-r--)    <span class="number">30.7</span>M   jsoncorpus_istex_data<span class="class">.json</span></span><br><span class="line">(-rw-rw-r--)    <span class="number">25.2</span>k   maj_config-corpus_ezpaarse_CONFIG-ancienneconfig<span class="class">.json</span></span><br><span class="line">(-rw-rw-r--)    <span class="number">25.9</span>k   maj_config-corpus_ezpaarse_CONFIG-nouvelleconfig<span class="class">.json</span></span><br><span class="line">(-rw-rw-r--)    <span class="number">5.2</span>M    maj_config-corpus_ezpaarse_CORPUS-<span class="attribute">initial</span><span class="class">.csv</span></span><br><span class="line">(-rw-rw-r--)    <span class="number">5.2</span>M    maj_config-corpus_ezpaarse_CORPUS-modifie<span class="class">.csv</span></span><br><span class="line">(-rw-rw-r--)    <span class="number">995</span>B    maj_config-corpus_ezpaarse_README<span class="class">.txt</span></span><br><span class="line">(-rw-rw-r--)    <span class="number">5.7</span>k    wos_france_lux_csv<span class="class">.json</span></span><br><span class="line">(-rw-rw-r--)    <span class="number">2.9</span>M    wos_france_lux_csv_CORPUS<span class="class">.csv</span></span><br><span class="line">(-rw-rw-r--)    <span class="number">1.1</span>k    wos_france_lux_tsv-csv_README<span class="class">.txt</span></span><br><span class="line">(-rw-rw-r--)    <span class="number">5.8</span>k    wos_france_lux_tsv<span class="class">.json</span></span><br><span class="line">(-rw-rw-r--)    <span class="number">1.5</span>M    wos_france_lux_tsv_CORPUS-SansGuillemet_1-<span class="number">500</span>Ref<span class="class">.txt</span></span><br><span class="line">(-rw-rw-r--)    <span class="number">1.4</span>M    wos_france_lux_tsv_CORPUS-SansGuillemet_501-<span class="number">999</span>Ref<span class="class">.txt</span></span><br><span class="line">(-rw-rw-r--)    <span class="number">1.5</span>M    wos_france_lux_tsv_CORPUS_1-<span class="number">500</span>Ref<span class="class">.txt</span></span><br><span class="line">(-rw-rw-r--)    <span class="number">1.4</span>M    wos_france_lux_tsv_CORPUS_501-<span class="number">999</span>Ref.txt</span><br></pre></td></tr></table></figure>
+<h2 id="Correction_du_chargement_incomplet">Correction du chargement incomplet</h2><p>Dans plusieurs des bugs déclarés, lors du chargement des données au premier lancement, ezVIS ne rendait pas la main: la déclaration <code>Files and Database are synchronised.</code> n’arrivait pas (même quand tous les documents avaient été chargés), et donc encore moins le calcul des <code>corpusFields</code> (les métriques sur le corpus).<br>Souvent d’ailleurs, on pouvait contourner ce problème en relançant simplement l’instance (ezVIS détectait alors que le(s) fichier(s) n’avaient pas changés, et passait directement à l’étape suivante: le calcul des métriques).</p>
+<p>Il s’est avéré que ce cas arrivait quand une erreur survenait lors du chargement (soit un problème de <em>parsing</em> du fichier, soit un problème JBJ lors du calcul des <code>documentFields</code>).<br>L’analyse a révélé que lors du chargement, les erreurs étaient complètement ignorées, et qu’ezVIS essayait quand même de traiter les données, sans même afficher l’erreur.</p>
+<p>Dorénavant, l’erreur est affichée, accompagnée du nom du fichier et du numéro du document, dans ce fichier, pour lequel l’erreur s’est produite.</p>
+<p>Exemple:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">$ ezvis bibliotep_entier_pertes</span><br><span class="line">Core version : <span class="number">2.5</span>.<span class="number">0</span></span><br><span class="line">Configuration : /home/parmentf/dev/castorjs/bugs/bibliotep_entier_pertes.json</span><br><span class="line">Theme : /home/parmentf/dev/castorjs/ezvis</span><br><span class="line">App    : ezvis <span class="number">6.7</span>.<span class="number">3</span></span><br><span class="line">Source : /home/parmentf/dev/castorjs/bugs/bibliotep_entier_pertes</span><br><span class="line">Server is listening on port <span class="number">3000</span>: http://localhost:<span class="number">3000</span></span><br><span class="line">Index field : annee/annee_1</span><br><span class="line">Index field : titre/titre_1</span><br><span class="line">Index field : wid/wid_1</span><br><span class="line">Index field : neoplasms/neoplasms_1</span><br><span class="line">Index field : techniques/techniques_1</span><br><span class="line">Index field : pays/pays_1</span><br><span class="line">Index field : auteurs/auteurs_1</span><br><span class="line">Index field : vpmid/vpmid_1</span><br><span class="line">Index field : elements/elements_1</span><br><span class="line">Index field : pmid/pmid_1</span><br><span class="line">Index field : anatomical/anatomical_1</span><br><span class="line">Index field : isotopes/isotopes_1</span><br><span class="line">Index field : <span class="built_in">source</span>/<span class="built_in">source</span>_1</span><br><span class="line">Index field : text/text_text</span><br><span class="line"> error [TypeError: Cannot call method <span class="string">'slice'</span> of undefined] <span class="keyword">in</span> file /home/parmentf/dev/castorjs/bugs/bibliotep_entier_pertes/bibliotep_entier_pertes_2014-<span class="number">2015</span>.csv document <span class="comment"># 3431</span></span><br><span class="line"> error [TypeError: Cannot call method <span class="string">'slice'</span> of undefined] <span class="keyword">in</span> file /home/parmentf/dev/castorjs/bugs/bibliotep_entier_pertes/bibliotep_entier_pertes_2014-<span class="number">2015</span>.csv document <span class="comment"># 3643</span></span><br><span class="line"> error [TypeError: Cannot call method <span class="string">'slice'</span> of undefined] <span class="keyword">in</span> file /home/parmentf/dev/castorjs/bugs/bibliotep_entier_pertes/bibliotep_entier_pertes_2014-<span class="number">2015</span>.csv document <span class="comment"># 3645</span></span><br><span class="line"> error [TypeError: Cannot call method <span class="string">'slice'</span> of undefined] <span class="keyword">in</span> file /home/parmentf/dev/castorjs/bugs/bibliotep_entier_pertes/bibliotep_entier_pertes_2014-<span class="number">2015</span>.csv document <span class="comment"># 3738</span></span><br><span class="line"> error [TypeError: Cannot call method <span class="string">'slice'</span> of undefined] <span class="keyword">in</span> file /home/parmentf/dev/castorjs/bugs/bibliotep_entier_pertes/bibliotep_entier_pertes_2014-<span class="number">2015</span>.csv document <span class="comment"># 3855</span></span><br><span class="line"> error [TypeError: Cannot call method <span class="string">'slice'</span> of undefined] <span class="keyword">in</span> file /home/parmentf/dev/castorjs/bugs/bibliotep_entier_pertes/bibliotep_entier_pertes_2014-<span class="number">2015</span>.csv document <span class="comment"># 3895</span></span><br><span class="line">Files and Database are synchronised.</span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span> - - [<span class="number">20</span>/Jul/<span class="number">2015</span>:<span class="number">15</span>:<span class="number">41</span>:<span class="number">03</span> +<span class="number">0000</span>] <span class="string">"GET /compute.json?operator=count&amp;field=wid HTTP/1.1"</span> <span class="number">200</span> - <span class="string">"-"</span> <span class="string">"-"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span> - - [<span class="number">20</span>/Jul/<span class="number">2015</span>:<span class="number">15</span>:<span class="number">41</span>:<span class="number">03</span> +<span class="number">0000</span>] <span class="string">"GET /compute.json?operator=distinct&amp;field=annee HTTP/1.1"</span> <span class="number">200</span> - <span class="string">"-"</span> <span class="string">"-"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span> - - [<span class="number">20</span>/Jul/<span class="number">2015</span>:<span class="number">15</span>:<span class="number">41</span>:<span class="number">03</span> +<span class="number">0000</span>] <span class="string">"GET /compute.json?operator=distinct&amp;field=isotopes HTTP/1.1"</span> <span class="number">200</span> - <span class="string">"-"</span> <span class="string">"-"</span></span><br><span class="line">Corpus fields computed.</span><br></pre></td></tr></table></figure>
+<p>Cette correction a modifier le comportement d’ezVIS sur plusieurs des bugs déclarés, révélant alors que c’était plutôt les fichiers d’origine qui ne respectaient pas le format demandé (CVS et l’échappement des guillemets, par exemple).</p>
+<p>Voir sur GitHub: <a href="https://github.com/madec-project/ezvis/issues/46" target="_blank" rel="external">#46</a>.</p>
+<h2 id="Correction:_mettre_à_jour_l’instance_quand_la_configuration_est_modifiée">Correction: mettre à jour l’instance quand la configuration est modifiée</h2><p>Un comportement pratique d’ezVIS a cessé de fonctionner il y a déjà quelques sprints: quand on modifie la configuration d’une instance et qu’on la relance <em>sans modifier les données</em>, les documents ne prennent pas en compte les modifications de la configuration.<br>En particulier, quand un gestionnaire modifie les <code>documentFields</code>, ces nouveaux champs ne sont calculés que pour les nouveaux documents (ou pour aucun). C’est très handicapant quand on met au point une configuration car on est alors contraint, quand on passe par ezMaster, de supprimer l’instance et de la recréer (ce qui implique de recharger les données).</p>
+<p>Ce comportement a été rétabli: quand on modifie une configuration, si les documents sont plus anciens que le fichier de configuration, ezVIS les mets à jour en prenant en compte la nouvelle configuration.</p>
+<p>Voir sur GitHub: <a href="https://github.com/madec-project/ezvis/issues/49" target="_blank" rel="external">#49</a>.</p>
+<h2 id="Correction:_mettre_à_jour_l’instance_quand_les_fichiers_sont_modifiés">Correction: mettre à jour l’instance quand les fichiers sont modifiés</h2><p>Quand un fichier déjà chargé dans l’instance est remplacé par un fichier du même nom mais contenant des lignes en moins, les lignes ne disparaissaient pas.</p>
+<p>Après une enquête approfondie (merci à <a href="https://github.com/nojhamster" target="_blank" rel="external">Yannick</a> pour son aide), nous avons trouvé et corrigé le bug.</p>
+<p>Voir sur GitHub: <a href="https://github.com/madec-project/ezvis/issues/50" target="_blank" rel="external">#50</a>.</p>
+<p><strong>ATTENTION :</strong> il est possible que des métriques faisant un comptage des documents ne soient pas mises à jour immédiatement. Dans ce cas, il est nécessaire de redémarrer l’instance (ou de la mettre en pause de la relancer, via ezMaster) pour bénéficier d’un calcul à jour.</p>
+<h1 id="Nouvelle_documentation">Nouvelle documentation</h1><p>Il commençait à être difficile de s’y retrouver dans <a href="https://github.com/madec-project/ezvis/blob/356d3dc4b49e2e30c3c7684b087212f29537ef51/README.md" target="_blank" rel="external">l’ancienne documentation d’ezVIS</a>, qui tenait sur une page, mais était dépourvue de table des matières (et souvent faisait référence à la documentation d’autres projets).</p>
+<p>Il a donc été décidé d’utiliser un système dédié à la documentation de projets informatiques, qui se base sur le même format que l’ancienne documentation (Markdown): <a href="https://readthedocs.org/" target="_blank" rel="external">ReadTheDocs</a>.</p>
+<p>La nouvelle documentation, divisée en pages plus courtes, et agrémentée d’illustrations, est donc disponible sur <a href="http://ezvis.readthedocs.org/" target="_blank" rel="external">http://ezvis.readthedocs.org/</a> ou <a href="http://ezvis.rtfd.org/" target="_blank" rel="external">http://ezvis.rtfd.org/</a>.<br>Elle est mise à jour à chaque mise à jour du dépôt GitHub, et <em>responsive</em> (lisible sur un téléphone mobile).<br>Au besoin, on pourrait même en garder des versions différentes (une pour la version 6.*, et une pour la version suivante, par exemple).</p>
+<img src="/2015/07/23/Sprint-Review-15W26-consolidation/ezvis-readthedocs.png">
+<p>Voir sur GitHub: <a href="https://github.com/madec-project/ezvis/issues/51" target="_blank" rel="external">#51</a>.</p>
+<h1 id="Meilleurs_messages_d’erreur">Meilleurs messages d’erreur</h1><h2 id="oubli_de_lancer_MongoDB">oubli de lancer MongoDB</h2><p>Quand on a oublié MongoDB avant de lancer ezVIS, il y a maintenant un message d’erreur:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">failed to connect to [localhost:27017]</span><br></pre></td></tr></table></figure>
+<p>Il est certes sibyllin, mais il est difficile de faire mieux (principalement en raison du fait qu’ezVIS n’établit la connexion à MongoDB que lorsqu’il en a besoin).</p>
+<h2 id="oubli_du_paramètre">oubli du paramètre</h2><p>ezVIS a un paramètre obligatoire: le chemin du répertoire où se trouvent les fichiers contenant les données.<br>Auparavant, le message était très technique, et même les programmeurs avaient besoin de toute leur expérience pour le comprendre.</p>
+<p>Maintenant c’est celui ci:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ ezvis</span><br><span class="line">Usage:</span><br><span class="line"> ezvis data</span><br><span class="line">  data being a directory path, and data.json the settings file.</span><br><span class="line">  See https://github.com/madec-project/ezvis <span class="keyword">for</span> more details.</span><br></pre></td></tr></table></figure>
+<p>Voir sur GitHub: <a href="https://github.com/madec-project/ezvis/issues/52" target="_blank" rel="external">#52</a>.</p>
+<h2 id="Erreurs_JBJ">Erreurs JBJ</h2><p>Afin de pouvoir afficher les erreurs JBJ (dues à la configuration des <code>documentFields</code>, <code>corpusFields</code> et <code>flyingFields</code>), nous avons mené une opération d’homogénéisation du traitement des erreurs dans JBJ.<br>Il sont maintenant traités comme n’importe quelle erreur dans ezVIS (en particulier lors du chargement des données).</p>
+<p>Voir sur GitHub: <a href="https://github.com/madec-project/ezvis/issues/56" target="_blank" rel="external">#56</a>.</p>
+<h1 id="Camemberts:_position_des_légendes_lorsque_des_labels_sont_précisés">Camemberts: position des légendes lorsque des labels sont précisés</h1><p>Dans un <code>pie</code>, quand on déclare des <code>labels</code>, la position de la légende n’était pas prise en compte (voir image ci-dessous).</p>
+<p>Ex:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  "<span class="attribute">field</span>": <span class="value"><span class="string">"Prf"</span></span>,</span><br><span class="line">  "<span class="attribute">type</span>": <span class="value"><span class="string">"pie"</span></span>,</span><br><span class="line">  "<span class="attribute">title</span>": <span class="value"><span class="string">"Projets de recherche fédératifs (PRF) - PRF avec labels ds chart"</span></span>,</span><br><span class="line">  "<span class="attribute">legend</span>": <span class="value">&#123;</span><br><span class="line">    "<span class="attribute">position</span>": <span class="value"><span class="string">"right"</span></span><br><span class="line">  </span>&#125;</span>,</span><br><span class="line">  "<span class="attribute">labels</span>": <span class="value">&#123;</span><br><span class="line">    "<span class="attribute">ESU</span>": <span class="value"><span class="string">"ESU - Environnement sonore urbain"</span></span>,</span><br><span class="line">    "<span class="attribute">Eval-PDU</span>": <span class="value"><span class="string">"Eval-PDU - Evaluation environnementale des plans de déplacements urbains"</span></span>,</span><br><span class="line">    "<span class="attribute">GEOCONURB</span>": <span class="value"><span class="string">"GEOCONURB - Géo-connaissances urbaines"</span></span>,</span><br><span class="line">    "<span class="attribute">MUE</span>": <span class="value"><span class="string">"MUE - Microclimat urbain et énergie"</span></span>,</span><br><span class="line">    "<span class="attribute">ONEVU</span>": <span class="value"><span class="string">"ONEVU - Observatoire nantais des environnements urbains"</span></span>,</span><br><span class="line">    "<span class="attribute">PUD</span>": <span class="value"><span class="string">"PUD - Projet urbain durable"</span></span>,</span><br><span class="line">    "<span class="attribute">SOLURB</span>": <span class="value"><span class="string">"SOLURB - Sols urbains"</span></span>,</span><br><span class="line">    "<span class="attribute">V&amp;I</span>": <span class="value"><span class="string">"V&amp;I - Ville et image"</span></span><br><span class="line">  </span>&#125;</span>,</span><br><span class="line">  "<span class="attribute">removeLabels</span>": <span class="value"><span class="string">"true"</span></span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<img src="/2015/07/23/Sprint-Review-15W26-consolidation/IRSTV_PRF_LabelsDsChart.png">
+<p>C’est maintenant fonctionnel.</p>
+<p>Voir sur GitHub: <a href="https://github.com/madec-project/ezvis/issues/55" target="_blank" rel="external">#55</a>.</p>
+<h1 id="JBJ">JBJ</h1><h2 id="Nouveaux_alias:_getIndex_&amp;_getIndexVar">Nouveaux alias: <code>getIndex</code> &amp; <code>getIndexVar</code></h2><p>Quand <a href="http://jbj.rtfd.org/#getproperty" target="_blank" rel="external"><code>getProperty</code></a> et <a href="http://jbj.rtfd.org/#getpropertyvar" target="_blank" rel="external"><code>getPropertyVar</code></a> sont appliqués à un tableau, il est plus naturel d’utiliser <code>getIndex</code> et <code>getIndexVar</code> (cliquez sur les liens pour voir des exemples dans la documentation de JBJ version ReadTheDocs).</p>
+<p>Voir sur GitHub: <a href="https://github.com/madec-project/ezvis/issues/60" target="_blank" rel="external">#60</a>.</p>
+<h2 id="JBJ_Playground"><a href="http://castorjs.github.io/node-jbj/" target="_blank" rel="external">JBJ Playground</a></h2><p>Voir sur GitHub: <a href="https://github.com/madec-project/ezvis/issues/61" target="_blank" rel="external">#61</a>.</p>
+<h3 id="Recherche_dans_les_exemples">Recherche dans les exemples</h3><p>Nous avions déjà une recherche dans les actions, mais pas dans les exemples.<br>C’est fait.</p>
+<img src="/2015/07/23/Sprint-Review-15W26-consolidation/jbj-plgrnd-examples-search.png">
+<p>Voir sur GitHub: <a href="https://github.com/castorjs/node-jbj/commit/f8cde749693fbd6ff59642a5f23f8e7d93cacf1a" target="_blank" rel="external">f8cde74</a>.</p>
+<h3 id="Agrandissement_des_éditeurs">Agrandissement des éditeurs</h3><p>La taille des <code>INPUT</code>, <code>STYLESHEET</code> et <code>RESULT</code> était fixe. Elle est maintenant dépendante de la largeur de la fenêtre du navigateur.</p>
+<img src="/2015/07/23/Sprint-Review-15W26-consolidation/jbj-plgrnd-textareas.png">
+<p>Voir sur GitHub: <a href="https://github.com/castorjs/node-jbj/pull/12" target="_blank" rel="external">PR 12</a>.</p>
+<h3 id="Supprimer_les_préfixes_des_exemples_(Basic:_find)">Supprimer les préfixes des exemples (<code>Basic: find</code>)</h3><p>Les exemples étaient initialement classés par sujet, et partageaient leur <code>input</code>.<br>Nous avons supprimé le premier niveau (sujet).<br>Nous en avons aussi profité pour supprimer un effet de bord gênant: quand une feuille de style modifiait l’<code>input</code>, elle le modifiait aussi pour les autres exemples du même sujet. Chaque exemple est maintenant indépendant.</p>
+<p>Voir sur GitHub: <a href="https://github.com/castorjs/node-jbj/commit/e3915c3f9cb280ca4366f13d27eeb64ba881b1d3" target="_blank" rel="external">e3915c3</a>.</p>
+<h3 id="Ajouter_un_champ_URL">Ajouter un champ URL</h3><p>Nous avons ajouté un champ <code>URL</code> sous l’<code>input</code> pour pouvoir remplir cet éditeur avec la réponse d’une requête renvoyant du JSON.</p>
+<img src="/2015/07/23/Sprint-Review-15W26-consolidation/jbj-plgrnd-url-input.png">
+<img src="/2015/07/23/Sprint-Review-15W26-consolidation/jbj-plgrnd-url-json.png">
+<p>Voir sur GitHub: <a href="https://github.com/castorjs/node-jbj/commit/8174aae0d8fd3a7c8c5c57f0548ff40747363406" target="_blank" rel="external">8174aae</a>.</p>
+<h3 id="ezVIS:_ajouter_des_boutons_vers_le_JBJ_Playground">ezVIS: ajouter des boutons vers le JBJ Playground</h3><p>Quand on ajoute dans la configuration d’ezVIS une propriété <code>addlinkstojbj</code> à <code>true</code>, on ajoute un lien vers le JBJ Playground :</p>
+<ul>
+<li>dans la page d’affichage d’une notice (<code>/display/</code>) <a href="https://github.com/madec-project/ezvis/commit/7f514271584bc032f94eab1f6b1a18a0da5cd900" target="_blank" rel="external">7f51427</a>  <img src="/2015/07/23/Sprint-Review-15W26-consolidation/ezvis-display-jbj.png"></li>
+<li>dans la liste des documents (<code>/documents.html</code>) <a href="https://github.com/madec-project/ezvis/commit/25f64c3549542dc42a343bd47629c6d0192eea9a" target="_blank" rel="external">25f64c3</a>  <img src="/2015/07/23/Sprint-Review-15W26-consolidation/ezvis-documents-jbj.png"></li>
+<li>dans les graphiques (<code>/chart.html</code>) <a href="https://github.com/madec-project/ezvis/commit/c0dad222e63b7473dad342778ffa9437adf12a32" target="_blank" rel="external">c0dad22</a>  <img src="/2015/07/23/Sprint-Review-15W26-consolidation/ezvis-chart-jbj.png">
+</li>
+</ul>
+<p>Voir dans la documentation, <a href="http://ezvis.readthedocs.org/en/latest/JBJ/" target="_blank" rel="external">l’annexe sur JBJ</a>.</p>
+<p>Voir sur GitHub: <a href="https://github.com/madec-project/ezvis/issues/62" target="_blank" rel="external">#62</a>.</p>
+<h1 id="castor-clean:_message_explicite"><code>castor-clean</code>: message explicite</h1><p>Auparavant, <a href="https://github.com/castorjs/castor-clean/" target="_blank" rel="external"><code>castor-clean</code></a> était une commande muette: qu’elle ait accompli sa mission ou non, l’utilisateur n’en savait rien.</p>
+<p>Maintenant, quand tout s’est bien passé, elle écrit <code>OK</code>.<br>Sinon, le message est:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Warning: no collections dropped.&#10;         Either you mistyped the name, or it was already cleaned up.</span><br></pre></td></tr></table></figure>
+<p>Voir sur GitHub: <a href="https://github.com/castorjs/castor-clean/commit/8229754b0b6481d5abd9ac62c690bbfe349f89e9" target="_blank" rel="external">8229754</a>.</p>
+<p>Pour en profiter: <code>npm install -g castor-clean</code>. (version 1.2.0).</p>
+<h1 id="ezref:_usage"><code>ezref</code>: usage</h1><p>Comme pour <a href="#oubli_du_paramètre">ezVIS</a>, quand on oublie le paramètre obligatoire d’<code>ezref</code>, on a maintenant un message indiquant l’usage normal de la commande:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ ezref</span><br><span class="line">Usage:</span><br><span class="line"> ezref public</span><br><span class="line">  public being a directory path, and public.json the settings file.</span><br><span class="line">  See https://github.com/madec-project/ezref <span class="keyword">for</span> more details.</span><br></pre></td></tr></table></figure>
+<h1 id="ezvis:_mise_à_jour_de_dépendances"><code>ezvis</code>: mise à jour de dépendances</h1><p>Il existe un site qui recense la fraîcheur des dépendences de projets Node, et qui signale des trous de sécurité potentiels.</p>
+<p><a href="https://david-dm.org/madec-project/ezvis" target="_blank" rel="external"><img src="https://david-dm.org/madec-project/ezvis.svg" alt="Badge des dépendances d&#39;ezvis"></a></p>
+<p>J’ai donc procédé à quelques mises à jour (<code>marked</code>, <code>sha1</code>, et <code>qs</code>).</p>
+<p>Sans doute à surveiller de près.</p>
+<p>Comme d’habitude, pour profiter des ajouts de ce sprint dans ezVIS :</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --production -g ezvis</span><br></pre></td></tr></table></figure>
+<p>À ce jour, c’est la version 6.8.0.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://madec-project.github.io/2015/07/23/Sprint-Review-15W26-consolidation/" data-id="cicerchae0005hcp5hpbuv9x8" class="article-share-link">Share</a>
+      
+        <a href="http://madec-project.github.io/2015/07/23/Sprint-Review-15W26-consolidation/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bugs/">bugs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/castor-clean/">castor-clean</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/corpusFields/">corpusFields</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/documentFields/">documentFields</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/documentation/">documentation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ezref/">ezref</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ezvis/">ezvis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jbj/">jbj</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mise-a-jour/">mise à jour</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/readthedocs/">readthedocs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/usage/">usage</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/amcharts/">amcharts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bugs/">bugs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/castor-clean/">castor-clean</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/configuration/">configuration</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/corpusFields/">corpusFields</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv/">csv</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cytoscape/">cytoscape</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dalekjs/">dalekjs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/documentFields/">documentFields</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/documentation/">documentation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/export/">export</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ezmaster/">ezmaster</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ezref/">ezref</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ezvis/">ezvis</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flyingFields/">flyingFields</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/forever/">forever</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/general/">général</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jbj/">jbj</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/json/">json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/login/">login</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mise-a-jour/">mise à jour</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/overlay/">overlay</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pdf/">pdf</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/png/">png</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/proxy/">proxy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/presentation/">présentation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/readthedocs/">readthedocs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/showcase/">showcase</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svg/">svg</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tsv/">tsv</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/twitter/">twitter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/usage/">usage</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vsst/">vsst</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsx/">xlsx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xml/">xml</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/amcharts/" style="font-size: 10px;">amcharts</a><a href="/tags/blog/" style="font-size: 12px;">blog</a><a href="/tags/bugs/" style="font-size: 10px;">bugs</a><a href="/tags/castor-clean/" style="font-size: 10px;">castor-clean</a><a href="/tags/configuration/" style="font-size: 10px;">configuration</a><a href="/tags/corpusFields/" style="font-size: 10px;">corpusFields</a><a href="/tags/csv/" style="font-size: 12px;">csv</a><a href="/tags/cytoscape/" style="font-size: 10px;">cytoscape</a><a href="/tags/dalekjs/" style="font-size: 10px;">dalekjs</a><a href="/tags/documentFields/" style="font-size: 12px;">documentFields</a><a href="/tags/documentation/" style="font-size: 10px;">documentation</a><a href="/tags/export/" style="font-size: 12px;">export</a><a href="/tags/ezmaster/" style="font-size: 14px;">ezmaster</a><a href="/tags/ezref/" style="font-size: 16px;">ezref</a><a href="/tags/ezvis/" style="font-size: 20px;">ezvis</a><a href="/tags/flyingFields/" style="font-size: 14px;">flyingFields</a><a href="/tags/forever/" style="font-size: 12px;">forever</a><a href="/tags/general/" style="font-size: 10px;">général</a><a href="/tags/http/" style="font-size: 10px;">http</a><a href="/tags/jbj/" style="font-size: 18px;">jbj</a><a href="/tags/json/" style="font-size: 10px;">json</a><a href="/tags/login/" style="font-size: 10px;">login</a><a href="/tags/mise-a-jour/" style="font-size: 10px;">mise à jour</a><a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a><a href="/tags/overlay/" style="font-size: 10px;">overlay</a><a href="/tags/pdf/" style="font-size: 10px;">pdf</a><a href="/tags/png/" style="font-size: 10px;">png</a><a href="/tags/proxy/" style="font-size: 10px;">proxy</a><a href="/tags/presentation/" style="font-size: 10px;">présentation</a><a href="/tags/readthedocs/" style="font-size: 10px;">readthedocs</a><a href="/tags/showcase/" style="font-size: 10px;">showcase</a><a href="/tags/svg/" style="font-size: 10px;">svg</a><a href="/tags/tsv/" style="font-size: 12px;">tsv</a><a href="/tags/twitter/" style="font-size: 10px;">twitter</a><a href="/tags/usage/" style="font-size: 10px;">usage</a><a href="/tags/vsst/" style="font-size: 12px;">vsst</a><a href="/tags/xlsx/" style="font-size: 10px;">xlsx</a><a href="/tags/xml/" style="font-size: 10px;">xml</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">juillet 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">juin 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">mai 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">mars 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">février 2015</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/07/23/Sprint-Review-15W26-consolidation/">Sprint Review #15W26: consolidation</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/23/Sprint-Review-15W23-calculs-complexes/">Sprint Review #15W23: calculs complexes</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/01/Sprint-Review-15W19-Exports/">Sprint Review 15W19: Exports</a>
+          </li>
+        
+          <li>
+            <a href="/2015/05/04/Sprint-Review-15W14-ressources-externes/">Sprint Review #15W14: ressources externes</a>
+          </li>
+        
+          <li>
+            <a href="/2015/03/30/Sprint-Review-15W09-stabilisation/">Sprint Review #15W09: stabilisation</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 MADEC<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'madecproject';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
