@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: configuration | MADEC</title>
+  <title>Tag: erreurs | MADEC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="MADEC">
-<meta property="og:url" content="http://madec-project.github.io/tags/configuration/index.html">
+<meta property="og:url" content="http://madec-project.github.io/tags/erreurs/index.html">
 <meta property="og:site_name" content="MADEC">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -65,10 +65,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Configuration" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Sprint-Review-15W30-gestion-des-erreurs" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/03/19/Configuration/" class="article-date">
-  <time datetime="2015-03-19T22:38:00.000Z" itemprop="datePublished">19 3 2015</time>
+    <a href="/2015/09/14/Sprint-Review-15W30-gestion-des-erreurs/" class="article-date">
+  <time datetime="2015-09-14T12:00:00.000Z" itemprop="datePublished">14 9 2015</time>
 </a>
     
   </div>
@@ -79,7 +79,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/03/19/Configuration/">Configuration d&#39;ezVIS / minimum</a>
+      <a class="article-title" href="/2015/09/14/Sprint-Review-15W30-gestion-des-erreurs/">Sprint Review #15W30: gestion des erreurs</a>
     </h1>
   
 
@@ -87,57 +87,51 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Introduction">Introduction</h1><p>Pour créer un rapport web avec ezVIS, il faut configurer l’application. Il y a 3 volets:</p>
+        <p>Ce quatorzième et avant-dernier sprint avait pour thème <em>la gestion des erreurs</em>.<br>Nous avons apporté quelques modifications concernant la gestion des erreurs et leur signalement, ajouté une visualisation du chargement des données à <code>ezvis</code> et quelques moyens de valider ce chargement.<br>Pendant la chasse au bug que comporte tout sprint, nous avons écrit une commande permettant de mieux situer d’où viennent certaines erreurs: <code>csv-string</code>.<br>Au passage, nous avons ajouté des fonctionnalités à JBJ (dans l’optique de faciliter l’utilisation de ressources externes).</p>
+<h2 id="Tâches">Tâches</h2><ul>
+<li>9 taĉhes prévues</li>
+<li>6 tâches terminées</li>
+<li>plus de 21,5 points de complexité prévus</li>
+<li>32 points de complexité effectués</li>
+</ul>
+<p>Comme <a href="/2015/07/23/Sprint-Review-15W26-consolidation/#Tâches">la dernière fois</a>, nous étions en présence d’un bug, par essence d’estimation difficile tant qu’on n’a pas entamé son analyse.</p>
+<h2 id="Gestion_des_erreurs">Gestion des erreurs</h2><p>Les erreurs de chargement sont maintenant sauvegardées dans un fichier <code>instance_errors.log</code> (où <code>instance</code> est le nom de l’instance, c’est-à-dire le nom du répertoire où se trouvent les données).</p>
+<p>Lorsque la variable d’environnement <code>NODE_ENV</code> ne vaut pas <code>production</code>, ces erreurs sont aussi affichées dans la sortie standard d’erreur.<br>En clair, cela signifie que si on utilise ezvis via un terminal on peut voir ces erreurs (sauf si la variable en question a été créée/modifiée), mais que pour l’instant, l’utilisation exclusive d’ezmaster ne le permet pas.</p>
+<p><a href="https://github.com/madec-project/ezvis/issues/66" target="_blank" rel="external">#66</a><br><a href="https://github.com/madec-project/ezvis/issues/67" target="_blank" rel="external">#67</a></p>
+<h2 id="Visualisation_du_chargement">Visualisation du chargement</h2><p>Lors du chargement des données (par exemple au démarrage d’ezvis), au lieu de laisser l’administrateur d’une instance dans l’expectative, à ne pas savoir où en est le chargement, on affiche maintenant la progression du chargement en direct:</p>
+<p><script type="text/javascript" src="https://asciinema.org/a/8xu5zzhclccty0sahnstip58z.js" id="asciicast-8xu5zzhclccty0sahnstip58z" async></script><br><a href="https://github.com/madec-project/ezvis/issues/63" target="_blank" rel="external">#63</a></p>
+<h2 id="Validation_du_chargement">Validation du chargement</h2><p>À la fin d’un chargement, un fichier <code>instance_load.log</code> existe avec des informations sur les opérations de synchronisation qui ont eu lieu:</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ cat data15<span class="emphasis">_load.json </span><br><span class="line">/Lorraine_</span>WOS<span class="emphasis">_Moselle_</span>publis2007-2012<span class="emphasis">_SansLorraineSansMoselle_</span>UTF8.csv : 3449</span><br><span class="line">Total    : 3449 documents</span><br><span class="line"><span class="header">Fri Sep 11 2015 17:47:55 GMT+0200 (CEST)</span><br><span class="line">---------------------------------</span></span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/madec-project/ezvis/issues/68" target="_blank" rel="external">#68</a></p>
+<h2 id="Amélioration_des_messages_d’erreurs_de_JBJ">Amélioration des messages d’erreurs de JBJ</h2><p>Jusqu’à présent, les erreurs de JBJ (le langage utilisé pour la configuration d’ezvis) étaient traitées de manière hétérogène.<br>Dorénavant, elles sont toutes traitées de la même manière, et affichées lors du chargement.<br>On ajoute derrière le message d’erreur qui peut encore être abscons (c’est un message d’erreur javascript) le nom de l’action qui a provoqué cette erreur (mais pas le nom de ses alias).</p>
+<p><a href="https://github.com/madec-project/ezvis/issues/64" target="_blank" rel="external">#64</a></p>
+<h2 id="csv-string">csv-string</h2><p>Lors de la mise au point d’une instance, on peut rencontre une erreur JBJ concernant une action <code>parseCSV</code> ou <code>parseCVSFile</code>.<br>Sachant que ces actions JBJ utilisent une bibliothèque appelée <a href="https://www.npmjs.com/package/csv-string" target="_blank" rel="external">csv-string</a>, il est pratique de pouvoir reproduire (puis éliminer) ces erreurs en dehors du processus ezvis (qui peut être long, si le nombre de documents est élevé).<br>C’est pourquoi j’ai écrit une commande <code>csv-string</code> qui applique l’analyse d’un CSV avec les options par défaut en utilisant la même bibliothèque qu’ezvis: csv-string.</p>
+<p>Son installation est similaire à celle d’ezvis:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g csv-string</span><br></pre></td></tr></table></figure>
+<p>Cette commande lit l’entrée standard et écrit sur la sortie standard (et éventuellement la sortie standard d’erreur).</p>
+<h2 id="Chargement_de_ressources_externes_en_CSV">Chargement de ressources externes en CSV</h2><p>Lors d’un test d’utilisation de <a href="/2015/05/04/Sprint-Review-15W14-ressources-externes/#Accès_aux_ressources_externes">ressources externes</a>, nous nous sommes rendus compte qu’il était bien plus facile d’accéder à des ressources au format JSON, qu’à des ressources au format CSV.</p>
 <ol>
-<li>connexion avec la base de données</li>
-<li>intégration des données</li>
-<li>ajout de graphiques</li>
+<li>l’action <a href="https://github.com/castorjs/node-jbj/blob/master/README.md#parsecsv-separator" target="_blank" rel="external"><code>parseCSV</code></a> est faite pour analyser une chaîne de caractère représentant un <em>champ</em> (une colonne), et non un fichier CSV complet. Elle renvoie uniquement la première ligne d’un fichier CSV.</li>
+<li><p>l’action <a href="https://github.com/castorjs/node-jbj/blob/master/README.md#parsecsvfile-separator" target="_blank" rel="external"><code>parseCSVFile</code></a> que nous avons ajoutée pallie le problème précédent, mais ne permet pas d’obtenir un objet directement utilisable (équivalent à un tableau associatif), mais un tableau de tableaux:</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  [</span><br><span class="line">    <span class="string">"Afghanistan"</span>,</span><br><span class="line">    <span class="string">"AFG"</span></span><br><span class="line">  ],</span><br><span class="line">  [</span><br><span class="line">    <span class="string">"Aland Islands"</span>,</span><br><span class="line">    <span class="string">"ALA"</span></span><br><span class="line">  ]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p> nous avons donc crée une nouvelle action, <a href="https://github.com/castorjs/node-jbj/blob/master/README.md#arrays2objects-key-value" target="_blank" rel="external"><code>arrays2objects</code></a>, qui permet de modifier ce tableau (transformer les tableaux internes en objets) qui pourront ensuite être utilisés par l’action <a href="https://github.com/castorjs/node-jbj/blob/master/README.md#array2object-key-value" target="_blank" rel="external"><code>array2object</code></a> pré-existante (que l’on utilisait déjà avec le fichier JSON externe).</p>
+</li>
 </ol>
-<p>Ils sont tous gérables dans le fichier de configuration du rapport, qui est au format <a href="http://fr.wikipedia.org/wiki/JavaScript_Object_Notation" target="_blank" rel="external">JSON</a> (JavaScript Object Notation). Son extension est <code>.json</code>et son préfixe est obligatoirement le même que le nom du répertoire dans lequel se trouvent les fichiers de données.<br>Nous prendrons l’exemple d’un fichier <code>data.json</code> placé au même niveau que le répertoire <code>data</code>, qui contient un fichier au format CSV dont nous reparlerons plus tard.</p>
-<h1 id="Connexion_avec_la_base_de_données">Connexion avec la base de données</h1><p>Le système de gestion de base de données utilisé par ezVIS est <a href="http://mongodb.org" target="_blank" rel="external">mongoDB</a>, et une connexion par défaut est utilisée, qui permet de retrouver les données liées au rapport dans la <em>database</em> appelée <code>castor</code>.<br>Si vous voulez changer cet emplacement, modifiez la clé <code>connexionURI</code>du fichier <code>data.json</code> (valeur par défaut: <code>mongodb://localhost:27017/castor/</code>).</p>
-<p>À l’intérieur de <code>castor</code>, mongo range ses données dans des collections. Sans indication supplémentaire, ezVIS nomme la collection avec une clé de hachage calculée à partir du chemin du répertoire <code>data</code>. Cela donne un nom illisible pour un humain, mais quasi-unique en fonction du chemin.<br>Si vous avez l’intention de manipuler les données dans mongoDB (par exemple, simplement pour réinitialiser les données, avec <a href="https://github.com/castorjs/castor-clean" target="_blank" rel="external"><code>castor-clean</code></a>), il est prudent de renseigner la clé <code>collectionName</code>, dans notre cas avec la valeur <code>&quot;data&quot;</code>par exemple:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"collectionName"</span>: <span class="string">"data"</span>,</span><br></pre></td></tr></table></figure>
-<p>Tant que vous y êtes, il est prudent de renseigner aussi les clés <code>title</code>et <code>description</code>, pour vous y retrouver quand vous relirez ce fichier dans quelques mois…</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"title"</span>: <span class="string">"Rapport d'exemple de configuration"</span>,</span><br><span class="line"><span class="string">"description"</span>: <span class="string">"D'après l'article \"Configuration d'ezVIS / minimum\""</span>,</span><br><span class="line"><span class="string">"collectionName"</span>: <span class="string">"data"</span>,</span><br></pre></td></tr></table></figure>
-<p><code>title</code> sera utilisé pour le titre du rapport (la fenêtre du navigateur) et <code>description</code> sera beaucoup plus discrètement placée dans les métadonnées HTML du rapport (visible surtout des moteurs de recherche).</p>
-<p>À condition d’avoir déjà installé <code>ezvis</code>, vous pouvez d’ores et déjà le lancer avec:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ezvis data</span><br></pre></td></tr></table></figure>
-<h1 id="Intégration_des_données">Intégration des données</h1><p>Après avoir lancé ezVIS, un rapport vide devrait être consultable à l’URL <a href="http://localhost:3000/" target="_blank" rel="external">http://localhost:3000/</a> (3000 étant le port par défaut, on peut le changer via la clé <code>port</code>).</p>
-<p>Le menu gauche doit donner accès au <em>dashboard</em> et aux <em>documents</em>.</p>
-<p>Seul un message signalant qu’aucune configuration n’existe encore apparaît sur ces deux pages.</p>
-<p>Nous allons commencer par configurer simplement la liste des documents. Elle se présente sous la forme d’une table affichant, dans l’ordre où ils sont déclarés dans le fichier <code>data.json</code>, tous les champs déclarés <em>visibles</em>.</p>
-<p>Prenons un exemple simple, un fichier <code>data.csv</code> qui sera placé dans le répertoire <code>data</code>:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">year,person&#10;1912,Alan Turing&#10;1927,Marvin Minsky</span><br></pre></td></tr></table></figure>
-<p>C’est un fichier CSV (Comma Separated Values) qui aurait pu être exporté d’un tableur, comme Excel ou LibreOffice.<br>Pour que ces données soient affichées dans la page <a href="http://localhost:3000/documents.html" target="_blank" rel="external">http://localhost:3000/documents.html</a>, il faut que nous déclarions les champs <code>year</code>et <code>person</code> (qui sont automatiquement placés dans une clé <code>content.json</code> de chaque document dans la base, au démarrage d’ezVIS).<br>Le premier document sera placé dans la base sous forme d’un document JSON, et la partie qui nous intéresse aura cette forme:</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  "<span class="attribute">content</span>": <span class="value">&#123;</span><br><span class="line">    "<span class="attribute">json</span>": <span class="value">&#123;</span><br><span class="line">      "<span class="attribute">year</span>": <span class="value"><span class="string">"1912"</span></span>,</span><br><span class="line">      "<span class="attribute">person</span>": <span class="value"><span class="string">"Marvin Minsky"</span></span><br><span class="line">    </span>&#125;</span><br><span class="line">  </span>&#125;</span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
-<p>Pour déclarer les champs, nous utiliserons la clé <code>documentFields</code> (qui au passage créera une copie du contenu des champs mais directement à la racine du document):</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  "<span class="attribute">documentFields</span>": <span class="value">&#123;</span><br><span class="line">    "<span class="attribute">$year</span>": <span class="value">&#123;</span><br><span class="line">	  "<span class="attribute">get</span>": <span class="value"><span class="string">"content.json.year"</span></span>,</span><br><span class="line">	  "<span class="attribute">visible</span>": <span class="value"><span class="literal">true</span></span>,</span><br><span class="line">	  "<span class="attribute">label</span>": <span class="value"><span class="string">"Année"</span></span><br><span class="line">    </span>&#125;</span>,</span><br><span class="line">    "<span class="attribute">$person</span>": <span class="value">&#123;</span><br><span class="line">      "<span class="attribute">get</span>": <span class="value"><span class="string">"content.json.person"</span></span>,</span><br><span class="line">      "<span class="attribute">visible</span>": <span class="value"><span class="literal">true</span></span>,</span><br><span class="line">      "<span class="attribute">label</span>": <span class="value"><span class="string">"Nom"</span></span><br><span class="line">    </span>&#125;</span><br><span class="line">  </span>&#125;</span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
-<p>Cette déclaration modifiera le document précédent pour donner ceci:</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  "<span class="attribute">content</span>": <span class="value">&#123;</span><br><span class="line">    "<span class="attribute">json</span>": <span class="value">&#123;</span><br><span class="line">      "<span class="attribute">year</span>": <span class="value"><span class="string">"1912"</span></span>,</span><br><span class="line">      "<span class="attribute">person</span>": <span class="value"><span class="string">"Marvin Minsky"</span></span><br><span class="line">    </span>&#125;</span><br><span class="line">  </span>&#125;</span>,</span><br><span class="line">  "<span class="attribute">year</span>": <span class="value"><span class="string">"1912"</span></span>,</span><br><span class="line">  "<span class="attribute">person</span>": <span class="value"><span class="string">"Marvin Minsky"</span></span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
-<p>Cela peut paraître inutile pour l’instant, mais l’intérêt de cette redondance deviendra évident avec la manipulation de champs multivalués, par exemple.</p>
-<p>Le fait d’avoir déclaré une clé <code>visible</code> avec une valeur <code>true</code> implique que le champ sera visible dans la table des documents.</p>
-<p>La partie <code>label</code> de la déclaration donne le nom la colonne correspondante dans la table des documents.</p>
-<h1 id="Ajout_de_graphique">Ajout de graphique</h1><p>Pour ajouter un graphique, il suffit de sélectionner un type parmi:</p>
-<ol>
-<li>histogramme <code>histogram</code></li>
-<li>barres horizontales <code>horizontalbars</code></li>
-<li>camembert <code>pie</code></li>
-<li>carte géographique <code>map</code></li>
-<li>réseau <code>network</code></li>
-</ol>
-<p>et d’y associer un champ (calculé ou non).</p>
-<p>Le plus simple est un histogramme.</p>
-<p>Tous les graphiques sont inclus dans le <code>dashboard</code> (tableau de bord), c’est-à-dire la page d’accueil d’ezVIS.</p>
+<p>Avant:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"$TCMonde"</span>: &#123;</span><br><span class="line">  <span class="string">"$?"</span>: <span class="string">"http://localhost:35000/ESI_AllFields_20150407.json"</span>,</span><br><span class="line">  <span class="string">"parseJSON"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">"array2object"</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Maintenant:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"$TCMonde"</span>: &#123;</span><br><span class="line">  <span class="string">"$?"</span>: <span class="string">"http://localhost:35000/ESI_AllFields_20150407.tsv"</span>,</span><br><span class="line">  <span class="string">"parseCSVFile"</span>: <span class="string">"\t"</span>,</span><br><span class="line">  <span class="string">"arrays2objects"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">"array2object"</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/madec-project/ezvis/issues/65" target="_blank" rel="external">#65</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://madec-project.github.io/2015/03/19/Configuration/" data-id="ciee9iq7d002xqfp5aqyypbyq" class="article-share-link">Share</a>
+      <a data-url="http://madec-project.github.io/2015/09/14/Sprint-Review-15W30-gestion-des-erreurs/" data-id="ciee9iq4e0005qfp5fpam5sl5" class="article-share-link">Share</a>
       
-        <a href="http://madec-project.github.io/2015/03/19/Configuration/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://madec-project.github.io/2015/09/14/Sprint-Review-15W30-gestion-des-erreurs/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/configuration/">configuration</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ezvis/">ezvis</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bugs/">bugs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/chargement/">chargement</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/csv-string/">csv-string</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/erreurs/">erreurs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jbj/">jbj</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/validation/">validation</a></li></ul>
 
     </footer>
   </div>
