@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Visualisation d'information structurée en rapport]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://madec-project.github.io/"/>
-  <updated>2015-09-11T16:49:30.000Z</updated>
+  <updated>2015-09-15T13:43:19.000Z</updated>
   <id>http://madec-project.github.io/</id>
   
   <author>
@@ -19,10 +19,10 @@
     <link href="http://madec-project.github.io/2015/09/14/Sprint-Review-15W30-gestion-des-erreurs/"/>
     <id>http://madec-project.github.io/2015/09/14/Sprint-Review-15W30-gestion-des-erreurs/</id>
     <published>2015-09-14T12:00:00.000Z</published>
-    <updated>2015-09-11T16:49:30.000Z</updated>
+    <updated>2015-09-15T13:43:19.000Z</updated>
     <content type="html"><![CDATA[<p>Ce quatorzième et avant-dernier sprint avait pour thème <em>la gestion des erreurs</em>.<br>Nous avons apporté quelques modifications concernant la gestion des erreurs et leur signalement, ajouté une visualisation du chargement des données à <code>ezvis</code> et quelques moyens de valider ce chargement.<br>Pendant la chasse au bug que comporte tout sprint, nous avons écrit une commande permettant de mieux situer d’où viennent certaines erreurs: <code>csv-string</code>.<br>Au passage, nous avons ajouté des fonctionnalités à JBJ (dans l’optique de faciliter l’utilisation de ressources externes).</p>
 <h2 id="Tâches">Tâches</h2><ul>
-<li>9 taĉhes prévues</li>
+<li>9 tâches prévues</li>
 <li>6 tâches terminées</li>
 <li>plus de 21,5 points de complexité prévus</li>
 <li>32 points de complexité effectués</li>
@@ -30,17 +30,17 @@
 <p>Comme <a href="/2015/07/23/Sprint-Review-15W26-consolidation/#Tâches">la dernière fois</a>, nous étions en présence d’un bug, par essence d’estimation difficile tant qu’on n’a pas entamé son analyse.</p>
 <h2 id="Gestion_des_erreurs">Gestion des erreurs</h2><p>Les erreurs de chargement sont maintenant sauvegardées dans un fichier <code>instance_errors.log</code> (où <code>instance</code> est le nom de l’instance, c’est-à-dire le nom du répertoire où se trouvent les données).</p>
 <p>Lorsque la variable d’environnement <code>NODE_ENV</code> ne vaut pas <code>production</code>, ces erreurs sont aussi affichées dans la sortie standard d’erreur.<br>En clair, cela signifie que si on utilise ezvis via un terminal on peut voir ces erreurs (sauf si la variable en question a été créée/modifiée), mais que pour l’instant, l’utilisation exclusive d’ezmaster ne le permet pas.</p>
-<p><a href="https://github.com/madec-project/ezvis/issues/66" target="_blank" rel="external">#66</a><br><a href="https://github.com/madec-project/ezvis/issues/67" target="_blank" rel="external">#67</a></p>
+<p>Voir sur GitHub : <a href="https://github.com/madec-project/ezvis/issues/66" target="_blank" rel="external">#66</a> <a href="https://github.com/madec-project/ezvis/issues/67" target="_blank" rel="external">#67</a></p>
 <h2 id="Visualisation_du_chargement">Visualisation du chargement</h2><p>Lors du chargement des données (par exemple au démarrage d’ezvis), au lieu de laisser l’administrateur d’une instance dans l’expectative, à ne pas savoir où en est le chargement, on affiche maintenant la progression du chargement en direct:</p>
-<p><script type="text/javascript" src="https://asciinema.org/a/8xu5zzhclccty0sahnstip58z.js" id="asciicast-8xu5zzhclccty0sahnstip58z" async></script><br><a href="https://github.com/madec-project/ezvis/issues/63" target="_blank" rel="external">#63</a></p>
+<p><script type="text/javascript" src="https://asciinema.org/a/8xu5zzhclccty0sahnstip58z.js" id="asciicast-8xu5zzhclccty0sahnstip58z" async></script><br>Voir sur GitHub : <a href="https://github.com/madec-project/ezvis/issues/63" target="_blank" rel="external">#63</a></p>
 <h2 id="Validation_du_chargement">Validation du chargement</h2><p>À la fin d’un chargement, un fichier <code>instance_load.log</code> existe avec des informations sur les opérations de synchronisation qui ont eu lieu:</p>
-<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ cat data15<span class="emphasis">_load.json </span><br><span class="line">/Lorraine_</span>WOS<span class="emphasis">_Moselle_</span>publis2007-2012<span class="emphasis">_SansLorraineSansMoselle_</span>UTF8.csv : 3449</span><br><span class="line">Total    : 3449 documents</span><br><span class="line"><span class="header">Fri Sep 11 2015 17:47:55 GMT+0200 (CEST)</span><br><span class="line">---------------------------------</span></span><br></pre></td></tr></table></figure>
-<p><a href="https://github.com/madec-project/ezvis/issues/68" target="_blank" rel="external">#68</a></p>
-<h2 id="Amélioration_des_messages_d’erreurs_de_JBJ">Amélioration des messages d’erreurs de JBJ</h2><p>Jusqu’à présent, les erreurs de JBJ (le langage utilisé pour la configuration d’ezvis) étaient traitées de manière hétérogène.<br>Dorénavant, elles sont toutes traitées de la même manière, et affichées lors du chargement.<br>On ajoute derrière le message d’erreur qui peut encore être abscons (c’est un message d’erreur javascript) le nom de l’action qui a provoqué cette erreur (mais pas le nom de ses alias).</p>
-<p><a href="https://github.com/madec-project/ezvis/issues/64" target="_blank" rel="external">#64</a></p>
-<h2 id="csv-string">csv-string</h2><p>Lors de la mise au point d’une instance, on peut rencontre une erreur JBJ concernant une action <code>parseCSV</code> ou <code>parseCVSFile</code>.<br>Sachant que ces actions JBJ utilisent une bibliothèque appelée <a href="https://www.npmjs.com/package/csv-string" target="_blank" rel="external">csv-string</a>, il est pratique de pouvoir reproduire (puis éliminer) ces erreurs en dehors du processus ezvis (qui peut être long, si le nombre de documents est élevé).<br>C’est pourquoi j’ai écrit une commande <code>csv-string</code> qui applique l’analyse d’un CSV avec les options par défaut en utilisant la même bibliothèque qu’ezvis: csv-string.</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ cat data15<span class="emphasis">_load.log</span><br><span class="line">/Lorraine_</span>WOS<span class="emphasis">_Moselle_</span>publis2007-2012<span class="emphasis">_SansLorraineSansMoselle_</span>UTF8.csv : 3449</span><br><span class="line">Total    : 3449 documents</span><br><span class="line"><span class="header">Fri Sep 11 2015 17:47:55 GMT+0200 (CEST)</span><br><span class="line">---------------------------------</span></span><br></pre></td></tr></table></figure>
+<p>Voir sur GitHub : <a href="https://github.com/madec-project/ezvis/issues/68" target="_blank" rel="external">#68</a></p>
+<h2 id="Amélioration_des_messages_d’erreurs_de_JBJ">Amélioration des messages d’erreurs de JBJ</h2><p>Jusqu’à présent, les erreurs de JBJ (le langage utilisé pour la configuration d’ezvis) étaient traitées de manière hétérogène.<br>Dorénavant, elles sont toutes traitées de la même manière, et affichées lors du chargement.<br>On ajoute, derrière le message d’erreur qui peut encore être abscons (c’est un message d’erreur javascript), le nom de l’action qui a provoqué cette erreur (mais pas le nom de ses alias).</p>
+<p>Voir sur GitHub : <a href="https://github.com/madec-project/ezvis/issues/64" target="_blank" rel="external">#64</a></p>
+<h2 id="csv-string">csv-string</h2><p>Lors de la mise au point d’une instance, on peut rencontrer une erreur JBJ concernant une action <code>parseCSV</code> ou <code>parseCVSFile</code>.<br>Sachant que ces actions JBJ utilisent une bibliothèque appelée <a href="https://www.npmjs.com/package/csv-string" target="_blank" rel="external">csv-string</a>, il est pratique de pouvoir reproduire (puis éliminer) ces erreurs en dehors du processus ezvis (qui peut être long, si le nombre de documents est élevé).<br>C’est pourquoi j’ai écrit une <a href="https://github.com/parmentf/csv-string-command" target="_blank" rel="external">commande <code>csv-string</code></a> qui applique l’analyse d’un CSV avec les options par défaut en utilisant la même bibliothèque qu’ezvis: csv-string.</p>
 <p>Son installation est similaire à celle d’ezvis:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g csv-string</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g csv-string-command</span><br></pre></td></tr></table></figure>
 <p>Cette commande lit l’entrée standard et écrit sur la sortie standard (et éventuellement la sortie standard d’erreur).</p>
 <h2 id="Chargement_de_ressources_externes_en_CSV">Chargement de ressources externes en CSV</h2><p>Lors d’un test d’utilisation de <a href="/2015/05/04/Sprint-Review-15W14-ressources-externes/#Accès_aux_ressources_externes">ressources externes</a>, nous nous sommes rendus compte qu’il était bien plus facile d’accéder à des ressources au format JSON, qu’à des ressources au format CSV.</p>
 <ol>
@@ -54,7 +54,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"$TCMonde"</span>: &#123;</span><br><span class="line">  <span class="string">"$?"</span>: <span class="string">"http://localhost:35000/ESI_AllFields_20150407.json"</span>,</span><br><span class="line">  <span class="string">"parseJSON"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">"array2object"</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Maintenant:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"$TCMonde"</span>: &#123;</span><br><span class="line">  <span class="string">"$?"</span>: <span class="string">"http://localhost:35000/ESI_AllFields_20150407.tsv"</span>,</span><br><span class="line">  <span class="string">"parseCSVFile"</span>: <span class="string">"\t"</span>,</span><br><span class="line">  <span class="string">"arrays2objects"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">"array2object"</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a href="https://github.com/madec-project/ezvis/issues/65" target="_blank" rel="external">#65</a></p>
+<p>Voir sur GitHub : <a href="https://github.com/madec-project/ezvis/issues/65" target="_blank" rel="external">#65</a></p>
 ]]></content>
     <summary type="html">
     <![CDATA[<p>Ce quatorzième et avant-dernier sprint avait pour thème <em>la gestion des erreurs</em>.<br>Nous avons apporté quelques modifications con]]>
@@ -68,7 +68,11 @@
     
       <category term="erreurs" scheme="http://madec-project.github.io/tags/erreurs/"/>
     
+      <category term="ezvis" scheme="http://madec-project.github.io/tags/ezvis/"/>
+    
       <category term="jbj" scheme="http://madec-project.github.io/tags/jbj/"/>
+    
+      <category term="log" scheme="http://madec-project.github.io/tags/log/"/>
     
       <category term="validation" scheme="http://madec-project.github.io/tags/validation/"/>
     
