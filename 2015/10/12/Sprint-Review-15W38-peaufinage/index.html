@@ -3,17 +3,36 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: proxy | MADEC</title>
+  <title>Sprint Review #15W38: peaufinage | MADEC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MADEC">
-<meta property="og:url" content="http://madec-project.github.io/tags/proxy/index.html">
+  <meta name="description" content="Pour ce quinzième et dernier sprint, nous devions terminer, polir, affiner, régler, en un mot peaufiner l’application ezVIS.
+Tâches
+19 tâches prévues
+17 tâches terminées
+plus de 43 points de complexit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sprint Review #15W38: peaufinage">
+<meta property="og:url" content="http://madec-project.github.io/2015/10/12/Sprint-Review-15W38-peaufinage/index.html">
 <meta property="og:site_name" content="MADEC">
-<meta property="og:description">
+<meta property="og:description" content="Pour ce quinzième et dernier sprint, nous devions terminer, polir, affiner, régler, en un mot peaufiner l’application ezVIS.
+Tâches
+19 tâches prévues
+17 tâches terminées
+plus de 43 points de complexit">
+<meta property="og:image" content="/2015/10/12/Sprint-Review-15W38-peaufinage/ezvis-top-right-icons.png">
+<meta property="og:image" content="/2015/06/23/Sprint-Review-15W23-calculs-complexes/ezvis-overlay-6.7.2.png">
+<meta property="og:image" content="/2015/10/12/Sprint-Review-15W38-peaufinage/ezvis-overlay-red.png">
+<meta property="og:image" content="/2015/10/12/Sprint-Review-15W38-peaufinage/ezmaster-11-instances.png">
+<meta property="og:image" content="/2015/10/12/Sprint-Review-15W38-peaufinage/ezmaster-14-instances.png">
+<meta property="og:image" content="/2015/10/12/Sprint-Review-15W38-peaufinage/ezmaster-html.png">
+<meta property="og:image" content="/2015/10/12/Sprint-Review-15W38-peaufinage/ezmaster-url.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MADEC">
-<meta name="twitter:description">
+<meta name="twitter:title" content="Sprint Review #15W38: peaufinage">
+<meta name="twitter:description" content="Pour ce quinzième et dernier sprint, nous devions terminer, polir, affiner, régler, en un mot peaufiner l’application ezVIS.
+Tâches
+19 tâches prévues
+17 tâches terminées
+plus de 43 points de complexit">
   
     <link rel="alternative" href="atom.xml" title="MADEC" type="application/atom+xml">
   
@@ -63,12 +82,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-Sprint-Review-15W09-stabilisation" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Sprint-Review-15W38-peaufinage" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/03/30/Sprint-Review-15W09-stabilisation/" class="article-date">
-  <time datetime="2015-03-30T14:00:00.000Z" itemprop="datePublished">30 3 2015</time>
+    <a href="/2015/10/12/Sprint-Review-15W38-peaufinage/" class="article-date">
+  <time datetime="2015-10-12T14:00:00.000Z" itemprop="datePublished">12 10 2015</time>
 </a>
     
   </div>
@@ -78,8 +95,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/03/30/Sprint-Review-15W09-stabilisation/">Sprint Review #15W09: stabilisation</a>
+    <h1 class="article-title" itemprop="name">
+      Sprint Review #15W38: peaufinage
     </h1>
   
 
@@ -87,68 +104,83 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Blog">Blog</h1><p>Afin de ne pas perdre des articles sur MADEC en général, et de pouvoir les stocker quelque part, ils sont écrits en français et en <a href="http://daringfireball.net/projects/markdown/syntax" target="_blank" rel="external">Markdown</a>, sauvegardés sur <a href="https://github.com/madec-project/blogfr" target="_blank" rel="external">GitHub</a>.</p>
-<p>Nous avons choisi un générateur de site statique nommé <a href="http://hexo.io" target="_blank" rel="external">Hexo</a>.</p>
-<p>J’ai <a href="2015/03/13/Presentation/">transcrit le poster</a> soumis (et accepté?) à <a href="http://atlas.irit.fr/" target="_blank" rel="external">VSST</a>.</p>
-<p>J’ai aussi commencé un article sur le minimum à savoir pour <a href="/2015/03/19/Configuration/">configurer un ezVIS</a>.</p>
-<p>J’en profite pour noter les sujets (et les liens) à présenter lors de cette <em>sprint review</em> numéro 9 qui expose les tâches menées à bien depuis la semaine 9 de 2015.</p>
-<h1 id="machine_virtuelle">machine virtuelle</h1><p>Nous avons eu quelques soucis de requêtes répondant bizarrement sur la machine virtuelle hébergeant <code>ezmaster</code> et <code>ezVIS</code>. Nous avons d’abord cru qu’il s’agissait d’un problème de mémoire (tant le <em>swap</em> était peu utilisé).</p>
-<p>La mémoire vive de la machine a donc été portée de 2Gio à 8Gio.</p>
-<h1 id="ezmaster">ezmaster</h1><p>L’application <code>castor-admin</code>, qui sert à administrer des instances d’applications (ou apps) basées sur <code>castor-core</code> (comme le sont <a href="http://github.com/madec-project/ezvis" target="_blank" rel="external"><code>ezvis</code></a> et <a href="https://github.com/termith-anr/idefix" target="_blank" rel="external"><code>idefix</code></a>) a été renommée en <code>ezmaster</code>, que ce soit sur <a href="https://github.com/madec-project/ezmaster" target="_blank" rel="external">GitHub</a> ou sur <a href="https://www.npmjs.com/package/ezmaster" target="_blank" rel="external">npm</a>.</p>
-<h1 id="board-inist-fr">board.inist.fr</h1><p>Nous avons configuré <code>ezmaster</code> sur la machine virtuelle pour que le nom de domaine <code>board.inist.fr</code> et ses sous-domaines puissent servir à publier une instance d’<code>ezvis</code>.</p>
-<p>Ainsi, les instances mises en place pour la démonstration du projet au directeur de la DIST jeudi dernier (le 26/03/2015) sont accessibles de l’extérieur.</p>
-<ul>
-<li>ezPAARSE results for ST2I portal logs (march 2015): <a href="http://couperin_ezpaarseezvis640v3_3.board.inist.fr" target="_blank" rel="external">http://couperin_ezpaarseezvis640v3_3.board.inist.fr</a></li>
-<li>ISTEX - Food Science &amp; Technology: <a href="http://dist_istexfoodscitechnezvis640v1_1.board.inist.fr" target="_blank" rel="external">http://dist_istexfoodscitechnezvis640v1_1.board.inist.fr</a></li>
-<li>Lorraine (Moselle) - 2007-2012: <a href="http://inist_lorraineezvis640v1_1.board.inist.fr" target="_blank" rel="external">http://inist_lorraineezvis640v1_1.board.inist.fr</a></li>
+        <p>Pour ce quinzième et dernier sprint, nous devions terminer, polir, affiner, régler, en un mot <em>peaufiner</em> l’application ezVIS.</p>
+<h1 id="Tâches">Tâches</h1><ul>
+<li>19 tâches prévues</li>
+<li>17 tâches terminées</li>
+<li>plus de 43 points de complexité prévus</li>
+<li>30 points de complexité effectués</li>
 </ul>
-<p>Les deux premières instances sont aussi disponibles dans le dépôt vitrine: <a href="https://github.com/madec-project/showcase" target="_blank" rel="external">showcase</a>.</p>
-<p>Isabelle y a aussi ajouté une étude sur les séries télévisées.</p>
-<h1 id="dalekjs">dalekjs</h1><p>J’ai commencé à mettre en place des tests, non pas unitaires, mais de comportement de l’application: en utilisant <a href="http://dalekjs.com" target="_blank" rel="external">dalekjs</a>, on peut écrire des scénarios de test de l’application.</p>
-<p>Lancement du serveur à tester:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/dev/castorjs/ezvis</span><br><span class="line">$ node cli <span class="built_in">test</span>/dataset/<span class="built_in">test</span>2</span><br></pre></td></tr></table></figure></p>
-<p>Lancement des tests:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/dev/castorjs/ezvis</span><br><span class="line">$ dalek <span class="built_in">test</span>/<span class="built_in">test</span>2.js</span><br></pre></td></tr></table></figure></p>
-<p>Résultat espéré:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Running tests</span><br><span class="line">Running Browser: PhantomJS</span><br><span class="line">OS: linux unknown <span class="number">64</span>bit</span><br><span class="line">Browser Version: <span class="number">1.9</span>.<span class="number">8</span></span><br><span class="line">RUNNING TEST - <span class="string">"Has data"</span></span><br><span class="line">▶ OPEN http://localhost:<span class="number">20002</span>/documents.html</span><br><span class="line">▶ WAITFOR Interrupted by timeout</span><br><span class="line">✔ EXISTS <span class="string">"Showing 1 to 4 of 4 entries"</span></span><br><span class="line">✔ TEXT <span class="string">"Showing 1 to 4 of 4 entries"</span></span><br><span class="line">✔ TEXT <span class="string">"1906"</span> <span class="keyword">in</span> first line</span><br><span class="line">✔ TEXT <span class="string">"Kurt Gödel"</span> <span class="keyword">in</span> first line</span><br><span class="line">▶ CLICK <span class="comment">#dataTables-documents tr:nth-child(4) td:first:first-child a</span></span><br><span class="line">✔ TITLE Correct</span><br><span class="line">✔ <span class="number">5</span> Assertions run</span><br><span class="line">✔ TEST - <span class="string">"Has data"</span> SUCCEEDED</span><br><span class="line">RUNNING TEST - <span class="string">"Good display"</span></span><br><span class="line">▶ OPEN http://localhost:<span class="number">20002</span>/display/Z5OAoW.html</span><br><span class="line">✔ TITLE Correct</span><br><span class="line">✔ NUMBEROFELEMENTS <span class="number">3</span> fields displayed</span><br><span class="line">✔ TEXT Name is <span class="string">"Douglas Hofstadter"</span></span><br><span class="line">✔ <span class="number">3</span> Assertions run</span><br><span class="line">✔ TEST - <span class="string">"Good display"</span> SUCCEEDED</span><br><span class="line"> <span class="number">8</span>/<span class="number">8</span> assertions passed. Elapsed Time: <span class="number">10.11</span> sec</span><br></pre></td></tr></table></figure></p>
-<h1 id="JBJ">JBJ</h1><ul>
-<li>on a évité d’écrire une action <code>mapArray</code> inutile (<a href="https://github.com/castorjs/node-jbj/issues/5" target="_blank" rel="external">jbj#5</a>)</li>
-<li>j’ai ajouté l’action <code>substring</code> (<a href="https://github.com/castorjs/node-jbj/issues/6" target="_blank" rel="external">jbj#6</a>), plus simple et intuitive que l’utilisation successive de <code>truncate</code> et <code>shift</code>.</li>
-</ul>
-<h1 id="ezVIS">ezVIS</h1><p>J’ai commencé à me servir des fonctionnalités de GitHub qui ne sont pas forcément incluses dans <code>git</code>: le système d’<em>issues</em> et de <em>milestones</em>.</p>
-<p>J’ai donc placé un jalon pour ce sprint, en lui donnant une date. C’est la <a href="https://github.com/madec-project/ezvis/milestones?state=closed" target="_blank" rel="external">milestone</a> <a href="https://github.com/madec-project/ezvis/issues?q=milestone%3A%22Sprint+%2315W09%3A+stabilization%22" target="_blank" rel="external">“Sprint #15W09: stabilization” d’ezvis</a>:</p>
-<ul>
-<li>changer le label “Search” en “Filter” dans le page <code>/documents.html</code> <a href="https://github.com/madec-project/ezvis/issues/3" target="_blank" rel="external">#3</a></li>
-<li>enlever le lien vers les champs depuis le tableau de bord <a href="https://github.com/madec-project/ezvis/issues/4" target="_blank" rel="external">#4</a></li>
-<li>affecter une couleur à chaque champ d’un réseau inter-champs <a href="https://github.com/madec-project/ezvis/issues/5" target="_blank" rel="external">#5</a></li>
-<li>corriger le bug d’export CSV vide de <code>/documents.html</code> <a href="https://github.com/madec-project/ezvis/issues/6" target="_blank" rel="external">#6</a></li>
-<li>ajouter un seuil en-deça duquel on rassemble les valeurs dans le camembert <a href="https://github.com/madec-project/ezvis/issues/7" target="_blank" rel="external">#7</a></li>
-<li>corriger les réseaux où les arcs sont dirigés <a href="https://github.com/madec-project/ezvis/issues/8" target="_blank" rel="external">#8</a></li>
-<li>donner la possibilité de modifier la largeur de la colonne de gauche dans <code>/display.html</code> <a href="https://github.com/madec-project/ezvis/issues/9" target="_blank" rel="external">#9</a></li>
-<li>restaurer la configuration des légendes <a href="https://github.com/madec-project/ezvis/issues/10" target="_blank" rel="external">#10</a></li>
-<li>donner la possibilité d’afficher aussi les années vides dans les histogrammes <a href="https://github.com/madec-project/ezvis/issues/11" target="_blank" rel="external">#11</a></li>
-<li>donner la possibilité d’afficher des labels plus courts sur les barres horizontales <a href="https://github.com/madec-project/ezvis/issues/12" target="_blank" rel="external">#12</a></li>
-<li>verbaliser les codes des pays sélectionnés dans les cartes, afin de rendre les filtres plus lisibles <a href="https://github.com/madec-project/ezvis/issues/13" target="_blank" rel="external">#13</a></li>
-<li>faire commencer l’axe des ordonnées à zéro dans les histogrammes <a href="https://github.com/madec-project/ezvis/issues/14" target="_blank" rel="external">#14</a></li>
-<li>déterminer si on peut utiliser des chaînes de caractères sur l’axe des X pour créer des diagrammes à bulles <a href="https://github.com/madec-project/ezvis/issues/15" target="_blank" rel="external">#15</a></li>
-<li>restaurer la configuration des couleurs <a href="https://github.com/madec-project/ezvis/issues/16" target="_blank" rel="external">#16</a></li>
-</ul>
+<p>D’une manière générale, nous nous sommes concentrés sur la stabilité de l’application, et donc sur la réduction de la dette technique.</p>
+<p>Nous avons aussi rencontré des problèmes sur ezMaster, qui ne pouvaient apparaître qu’après suffisamment d’utilisation, et résolu un bug dont la présence était aléatoire.</p>
+<h1 id="Dette_technique">Dette technique</h1><p>La <a href="https://fr.wikipedia.org/wiki/Dette_technique" target="_blank" rel="external">dette technique</a> est la distance à parcourir, en termes de développement, pour parvenir au programme le plus cohérent et le plus à facile maintenir.</p>
+<p>Les actions suivantes ont réduit cette dette.</p>
+<h3 id="Correction_de_connexionURI_en_connectionURI">Correction de connexionURI en connectionURI</h3><p>Le programme et ses options étant intégralement en anglais, il nous semblait incohérent de laisser une option avec une orthographe française: <code>connexionURI</code>.</p>
+<p>GitHub&nbsp;: <a href="https://github.com/madec-project/ezvis/issues/79" target="_blank" rel="external">#79</a></p>
+<h2 id="Préparer_ezvis_à_une_évolution_de_castor-core">Préparer ezvis à une évolution de castor-core</h2><p>Le cœur d’ezVIS est un module nommé <code>castor-core</code> dont nous savons qu’il va évoluer (notamment les URL utilisés par ezVIS). Les routes (ou URL) fournies par <code>castor-core</code> version 2 seront encore disponibles dans sa version 3, mais préfixées par <code>/-/v2</code>.<br>Nous avons donc changé tous les appels à ces URL dans ezVIS.</p>
+<p>GitHub&nbsp;: <a href="https://github.com/madec-project/ezvis/issues/81" target="_blank" rel="external">#81</a></p>
+<h2 id="Figer_les_dépendances_ou_pas?">Figer les dépendances ou pas?</h2><p>Pour éviter des surprises lors des futures installations d’ezVIS, au cas où un des modules dont il dépend ne respecterait pas le <a href="http://semver.org/" target="_blank" rel="external"><em>semantic versioning</em></a>, nous avons pensé qu’il serait utile de figer les numéros de version de ces dépendances.</p>
+<p>Il existe justement une commande du gestionnaire de modules de node qui le permet: <a href="https://docs.npmjs.com/cli/shrinkwrap" target="_blank" rel="external"><code>npm shrinkwrap</code></a>.<br>Malheureusement, celle-ci ne distingue <a href="https://github.com/npm/npm/issues/2679#issuecomment-137893324" target="_blank" rel="external">pas encore</a> les modules optionnels des modules obligatoires, et il se trouve qu’un module optionnel n’est pas utile ailleurs que sur Mac, mais que de plus il ne s’y installe pas, cassant ainsi l’installation d’<code>ezvis</code> dès qu’on utilise <em>shrinkwrap</em> (le rendant ainsi obligatoire).<br>La <a href="https://github.com/npm/npm/wiki/Roadmap-area-of-focus%3A-bundling" target="_blank" rel="external">feuille de route de npm</a> laisse à penser que d’ici un an, ce problème n’existera plus. D’ici là, nous compterons sur la gestion  sémantique de version des modules. S’ils la pratiquaient tous, moins de problèmes seraient à craindre.</p>
+<p>GitHub&nbsp;: <a href="https://github.com/madec-project/ezvis/issues/82" target="_blank" rel="external">#82</a> <a href="https://github.com/madec-project/ezvis/issues/85" target="_blank" rel="external">#85</a></p>
+<h1 id="Interface">Interface</h1><h2 id="Icones_enlevées">Icones enlevées</h2><p>Plusieurs icones étaient présentes dans l’entête d’ezVIS: celle des alertes (qui avertissait quand une synchronisation avait eu lieu, mais nous nous sommes aperçus que personne ne s’en servait), et celle de l’utilisateur (qui n’a jamais été fonctionnelle).</p>
+<img src="/2015/10/12/Sprint-Review-15W38-peaufinage/ezvis-top-right-icons.png">
+<p>Nous avons donc supprimé ces icones de la page.</p>
+<p>GitHub&nbsp;: <a href="https://github.com/madec-project/ezvis/issues/69" target="_blank" rel="external">#69</a></p>
+<h2 id="Couleur_des_graphes_superposés">Couleur des graphes superposés</h2><p>Jusqu’à présent, le <a href="/2015/06/23/Sprint-Review-15W23-calculs-complexes/#Graphes_superposés">graphe superposé</a> avait une couleur fixe&nbsp;: le jaune.</p>
+<p><img src="/2015/06/23/Sprint-Review-15W23-calculs-complexes/ezvis-overlay-6.7.2.png" alt="Le graphe superposé jaune"></p>
+<p>Si cette couleur convient la plupart du temps, nous avons souhaité donner le choix au gestionnaire en ajoutant l’option <code>color</code> à la partie <a href="https://ezvis.readthedocs.org/en/latest/Histogram/#overlay" target="_blank" rel="external"><code>overlay</code></a> de la configuration&nbsp;:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"overlay"</span>: &#123;</span><br><span class="line">  <span class="string">"label"</span>: <span class="string">"Taux de citation normalisé"</span>,</span><br><span class="line">  <span class="string">"flying"</span>: [<span class="string">"normalizeCitationRatio"</span>],</span><br><span class="line">  <span class="string">"color"</span>: <span class="string">"red"</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<img src="/2015/10/12/Sprint-Review-15W38-peaufinage/ezvis-overlay-red.png">
+<p>GitHub&nbsp;: <a href="https://github.com/madec-project/ezvis/issues/73" target="_blank" rel="external">#73</a></p>
+<h1 id="Corriger_l’authentification_derrière_un_reverse_proxy">Corriger l’authentification derrière un reverse proxy</h1><p>ezVIS peut être configuré pour n’<a href="/2015/05/04/Sprint-Review-15W14-ressources-externes/#login/password">autoriser l’accès</a> qu’à un utilisateur particulier.<br>Dans notre établissement, les instances d’ezVIS sont derrière un reverse proxy (ou <a href="https://fr.wikipedia.org/wiki/Proxy_inverse" target="_blank" rel="external">proxy inverse</a>) dont le comportement n’a pas été cohérent: l’adresse IP du visiteur était soit l’adresse de ce proxy (comportement attendu), soit une adresse locale (127.0.0.1), autorisant alors l’accès à l’instance.<br>Nous avons donc corrigé ezVIS pour qu’il tienne compte de l’entête HTTP <code>x-forwarded-for</code> qui, elle, contient bien l’adresse IP du visiteur (pas celle du proxy).</p>
+<p>GitHub&nbsp;: <a href="https://github.com/madec-project/ezvis/commit/cd94d07423e5d7cc460ee949d024193b2cda63e8" target="_blank" rel="external">cd94d07</a></p>
+<h1 id="Installation_automatique_avec_SCCM_sous_Windows">Installation automatique avec SCCM sous Windows</h1><p>Nous voulions pouvoir installer automatiquement, via le logiciel <a href="https://fr.wikipedia.org/wiki/System_Center_Configuration_Manager" target="_blank" rel="external">SCCM</a>, ezVIS sur plusieurs postes Windows à la fois, dans les services de notre établissement.<br>Malheureusement, SCCM prenant l’identité de l’administrateur de la machine pour installer, il n’a pas de répertoire utilisateur. Ce répertoire utilisateur étant indispensable à l’installeur Windows de node pour fonctionner, nous avons dû renoncer à ce projet.</p>
+<p>Malgré tout, l’installation manuelle de node est très simple, nous avons donc opté pour un compromis en automatisant uniquement l’installation de MongoDB, ce qui simplifie tout de même la procédure d’installation à l’INIST.</p>
+<h1 id="ezMaster">ezMaster</h1><h2 id="Remplacement_de_SlickGrid_par_un_tableau_HTML">Remplacement de SlickGrid par un tableau HTML</h2><img src="/2015/10/12/Sprint-Review-15W38-peaufinage/ezmaster-11-instances.png">
+<p>En dépassant 13 instances dans ezMaster, nous avons rencontré une limite: l’ascenseur disparait au-delà de 13 instances, empêchant toute action sur les dernières (configuration, ajout de données, suppression, …)&nbsp;:</p>
+<img src="/2015/10/12/Sprint-Review-15W38-peaufinage/ezmaster-14-instances.png">
+<p>La technologie utilisée, <a href="https://github.com/mleibman/SlickGrid/wiki" target="_blank" rel="external">SlickGrid</a>, est complexe et inutile pour le nombre d’instances que nous gérons: nous l’avons remplacée par un simple tableau HTML sans pagination, ni filtre, ni tri.</p>
+<img src="/2015/10/12/Sprint-Review-15W38-peaufinage/ezmaster-html.png">
+<p>GitHub&nbsp;: <a href="https://github.com/madec-project/ezmaster/issues/2" target="_blank" rel="external">ezmaster#2</a></p>
+<h2 id="Remplacer_le___par_un_-_dans_l’URL_publique">Remplacer le _ par un - dans l’URL publique</h2><img src="/2015/10/12/Sprint-Review-15W38-peaufinage/ezmaster-url.png">
+<p>Jusqu’à présent, le nom technique d’une instance est composé du nom du projet, de l’étude, et optionnellement d’une version, le tout séparé par des soulignés.<br>Dorénavant, et pour mieux satisfaire les normes sur les URL, ces séparateurs seront des tirets.</p>
+<p>GitHub&nbsp;: <a href="https://github.com/madec-project/ezvis/issues/80" target="_blank" rel="external">#80</a></p>
+<h1 id="Profitez!">Profitez!</h1><p>Pour profiter des améliorations présentées:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --production -g ezvis</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://madec-project.github.io/2015/03/30/Sprint-Review-15W09-stabilisation/" data-id="cifjgsyb0002vqdp55y7kg5uw" class="article-share-link">Share</a>
+      <a data-url="http://madec-project.github.io/2015/10/12/Sprint-Review-15W38-peaufinage/" data-id="cifjgsy8d0005qdp5ytdek9ch" class="article-share-link">Share</a>
       
-        <a href="http://madec-project.github.io/2015/03/30/Sprint-Review-15W09-stabilisation/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://madec-project.github.io/2015/10/12/Sprint-Review-15W38-peaufinage/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dalekjs/">dalekjs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ezmaster/">ezmaster</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ezvis/">ezvis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jbj/">jbj</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/proxy/">proxy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/showcase/">showcase</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bugs/">bugs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/configuration/">configuration</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ezmaster/">ezmaster</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ezvis/">ezvis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/login/">login</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sccm/">sccm</a></li></ul>
 
     </footer>
   </div>
   
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/09/14/Sprint-Review-15W30-gestion-des-erreurs/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Sprint Review #15W30: gestion des erreurs</div>
+    </a>
+  
+</nav>
+
+  
 </article>
 
 
-  
-  
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
 </section>
         
           <aside id="sidebar">
@@ -237,11 +269,13 @@
 <script>
   var disqus_shortname = 'madecproject';
   
+  var disqus_url = 'http://madec-project.github.io/2015/10/12/Sprint-Review-15W38-peaufinage/';
+  
   (function(){
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>
